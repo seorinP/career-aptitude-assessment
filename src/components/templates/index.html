@@ -1,0 +1,173 @@
+<html>
+    <body>
+        <h1><a href="/" onclick="
+            event.preventDefault();
+            nav();
+            welcome();    
+            history.pushState({}, 'Welcome', '/');
+        ">WEB</a></h1>
+        <ul>
+            
+        </ul>
+        <article>
+            
+        </article>
+        <ul id="control">
+            
+        </ul>
+        <script>
+            selected_id = null;
+            function control(){
+                var selected_control = '';
+                if(selected_id){
+                    selected_control = `
+                        <li>
+                            <input type="button" value="update" onclick="update();">
+                        </li>
+                        <li>
+                            <input type="button" value="delete" onclick="delHandler();">
+                        </li>
+                    `;
+                }                
+                document.querySelector('#control').innerHTML = `
+                <li>
+                    <input type="button" value="create" onclick="create()">
+                    ${selected_control}
+                </li>
+                
+                `
+            }
+            function topicClickHandler(topic_id){
+                event.preventDefault();
+                topic(topic_id);
+                control();
+                history.pushState({}, 'topic', '/'+topic_id);
+            }
+
+            function nav(){
+                fetch('/topics')
+                .then(function(type){
+                    return type.json();
+                })
+                .then(function(result){
+                    var str = '';
+                    for(var i=0; i<result.length; i++){
+                        var r = result[i];
+                        str = str + `<li><a onclick="
+                            selected_id = ${r.id}
+                            topicClickHandler(${r.id});    
+                        " href="/create/${r.title}">${r.title}</a></li>`;
+                    }
+                    document.querySelector('ul').innerHTML = str;
+                });
+            }
+
+            function topic(){
+                fetch('/topics/'+selected_id)
+                .then(function(type){
+                    return type.json();
+                })
+                .then(function(result){
+                    document.querySelector('article').innerHTML = `<h1>${result.title}</h1>${result.body}`;
+                })
+            }
+
+            function welcome(){
+                document.querySelector('article').innerHTML = `<h1>Welcome</h1>Hello, Front end`;
+            }
+
+            function delHandler(){
+                fetch('/topics/'+selected_id, {method:'DELETE'})
+                    .then(function(type){return type.json();})
+                    .then(function(result){
+                        nav();
+                        welcome();
+                    })
+            }
+
+            function createSubmitHandler(){
+                event.preventDefault();
+                var form = event.target;
+                fetch('/topics', {
+                        method:'POST',
+                        body:JSON.stringify({
+                            title:form.title.value,
+                            body:form.body.value 
+                        }),
+                        headers:{
+                            'Content-Type':'application/json'
+                        }
+                    })
+                    .then(function(type){return type.json();})
+                    .then(function(result){
+                        nav();
+                        selected_id = result.id;
+                        topic(selected_id);
+                    })
+            }
+
+            function create(){
+                history.pushState({}, 'create', '/create');
+                document.querySelector('article').innerHTML = `
+                    <form action="/topics" method="POST" onsubmit="createSubmitHandler();">
+                        <p><input type="text" name="title" placeholder="title"></p>
+                        <p><input type="text" name="body" placeholder="body"></p>
+                        <p><input type="submit"></p>
+                    </form>
+                `
+            }
+
+            function updateSubmitHandler(){
+                event.preventDefault();
+                var form = event.target;
+                fetch('/topics/'+selected_id, {
+                        method:'PUT',
+                        body:JSON.stringify({
+                            title:form.title.value,
+                            body:form.body.value 
+                        }),
+                        headers:{
+                            'Content-Type':'application/json'
+                        }
+                    })
+                    .then(function(type){return type.json();})
+                    .then(function(result){
+                        nav();
+                        selected_id = result.id;
+                        topic(selected_id);
+                    })
+            }
+
+            function update(){
+                history.pushState({}, 'update', '/update');
+                fetch('/topics/'+selected_id)
+                .then(function(type){
+                    return type.json();
+                })
+                .then(function(result){
+                    document.querySelector('article').innerHTML = `
+                    <form action="/topics/${selected_id}" method="PUT" onsubmit="updateSubmitHandler();">
+                        <p><input type="text" value="${result.title}" name="title" placeholder="title"></p>
+                        <p><input type="text" value="${result.body}" name="body" placeholder="body"></p>
+                        <p><input type="submit"></p>
+                    </form>
+                `
+                });
+            }
+            // nav();
+            control();
+            var pathname = location.pathname;
+            if(pathname === '/'){                
+                welcome();
+            } else if(pathname === '/create'){
+                create();
+            } else if(pathname === '/update'){
+                update();
+            } else {
+                var match = location.pathname.match(/\/([0-9]+)/);
+                var selected_id = match[1];
+                topic();
+            }
+        </script>
+    </body>
+</html>
