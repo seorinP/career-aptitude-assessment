@@ -2,36 +2,35 @@ import React from "react";
 import styled from "styled-components";
 
 const InputField = styled.input`
-    width: 100%;
-    border: 1px solid #6B3FA0;
-    outline: none;
-    border-radius: 0px;
-    line-height: 2.5rem;
-    font-size: 1.2rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-`
+  width: 100%;
+  border: 1px solid #6b3fa0;
+  outline: none;
+  border-radius: 0px;
+  line-height: 2.5rem;
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+`;
 
 const InputComponent = React.forwardRef((props, ref) => {
+  console.log("[InputComponent]props : ", props);
 
-    return (
-        <>
-            <InputField 
-                type='text'
-                name="name"
-                ref={ref}
-                className={[
-                    "form-control",
-                    (props => props.errors)?.name && "is-invalid",
-                ].join(" ")}
-                placeholder='ex) 김영희, Jasmine 등'
-            />
+  return (
+    <>
+      <InputField
+        type="text"
+        name="name"
+        ref={ref}
+        className={["form-control", props.errors.name && "is-invalid"].join(
+          " "
+        )}
+        placeholder="ex) 김영희, Jasmine 등"
+      />
 
-            <div className="invalid-feedback">
-                {errors?.name?.message}
-            </div>
-        </>
-    );
+      <div className="invalid-feedback">{props.errors.name?.message}</div>
+    </>
+  );
 });
 
 export default InputComponent;
+

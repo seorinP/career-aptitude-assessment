@@ -2,90 +2,96 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ko from "yup-locales-ko";
 import { useForm } from "react-hook-form";
-import { useCallback, useEffect, useMemo, forwardRef, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  forwardRef,
+  useRef,
+  useState,
+} from "react";
 import api from "utils/api";
 import { useHistory } from "react-router-dom";
 import { genders } from "utils/constants";
 import Question from "./Question";
 import ProgressBar from "./ProgressBar";
-import styled from 'styled-components';
-import Whale from '../../assets/common/whale.png';
-import GenderRadioButtonComponent from '../../components/GenderRadioButtonComponent';
-import StartButtonComponent from '../../components/StartButtonComponent';
-// import InputComponent from '../../components/InputComponent';
+import styled from "styled-components";
+import Whale from "../../assets/common/whale.png";
+import GenderRadioButtonComponent from "../../components/GenderRadioButtonComponent";
+import StartButtonComponent from "../../components/StartButtonComponent";
+import InputComponent from "../../components/InputComponent";
 
 yup.setLocale(ko);
 
 const Wrapper = styled.div`
-    display:${props => props.pageIndex === 0 ? 'flex' : 'none'};
-    width:100%;
-    background-color:white;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-`
+  display: ${(props) => (props.pageIndex === 0 ? "flex" : "none")};
+  width: 100%;
+  background-color: white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Container = styled.div`
-    margin-top:5rem;
-    margin-bottom:5rem;
-    text-align:center;
-`
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  text-align: center;
+`;
 
 const Intro = styled.div`
-    font-family:'Spoqa-Han-Sans';
-    font-size:1.4rem;
-    font-weight:400;
-    text-align:center;
-    color:#A7A7A7;
-    margin-bottom:4rem;
-`
+  font-family: "Spoqa-Han-Sans";
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: center;
+  color: #a7a7a7;
+  margin-bottom: 4rem;
+`;
 
 const InputField = styled.input`
-    width: 100%;
-    border: 1px solid #6B3FA0;
-    outline: none;
-    border-radius: 0px;
-    line-height: 2.5rem;
-    font-size: 1.2rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-`
+  width: 100%;
+  border: 1px solid #6b3fa0;
+  outline: none;
+  border-radius: 0px;
+  line-height: 2.5rem;
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+`;
 
 const Title = styled.div`
-    font-family:'Jalnan';
-    font-size:2.5rem;
-    text-align:center;
-    color:#6B3FA0;
-    margin-top:1.9rem;
-    margin-bottom:6.4rem;
-`
+  font-family: "Jalnan";
+  font-size: 2.5rem;
+  text-align: center;
+  color: #6b3fa0;
+  margin-top: 1.9rem;
+  margin-bottom: 6.4rem;
+`;
 const FormContainer = styled.div`
-    & + & {
-        margin-top: 1rem;
-    }
-`
+  & + & {
+    margin-top: 1rem;
+  }
+`;
 
 const Label = styled.div`
-    text-align: left;
-    font-size: 1rem;
-    color: ##6B3FA0;
-    margin-top: 1.2rem;
-    margin-bottom: 0.25rem;
-`
+  text-align: left;
+  font-size: 1rem;
+  color: ##6b3fa0;
+  margin-top: 1.2rem;
+  margin-bottom: 0.25rem;
+`;
 
 const Logo = styled.img`
-    width: 1.2rem;
-`
+  width: 1.2rem;
+`;
 
 const Footer = styled.div`
-    font-family:'Spoqa-Han-Sans';
-    font-size:1.4rem;
-    font-weight:400;
-    text-align:center;
-    margin-top:8.9rem;
-    color:#A7A7A7;
-`
-
+  font-family: "Spoqa-Han-Sans";
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 8.9rem;
+  color: #a7a7a7;
+`;
 
 const Test = () => {
   const history = useHistory();
@@ -93,7 +99,6 @@ const Test = () => {
   const [questions, setQuestions] = useState([]);
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
 
-  
   const lastPageIndex = useMemo(() => {
     return parseInt((questions || []).length / 5, 10) + 2;
   }, [questions]);
@@ -133,8 +138,7 @@ const Test = () => {
     });
   }, [questions]);
 
-
-  const { register, handleSubmit, errors, watch } = useForm({
+  const { register, handleSubmit, formState, watch } = useForm({
     resolver: yupResolver(formSchema),
     mode: "onChange",
     defaultValues: {
@@ -145,12 +149,16 @@ const Test = () => {
     },
   });
 
+  const { errors } = formState;
+  // console.log("formState : ", formState);
+
   const isNextDisabled = useMemo(() => {
+    const { gender, name } = watch();
+    console.log("gender, name : ", gender, name);
     if (!isQuestionLoaded) {
       return false;
     }
     if (currentPageIndex <= 0) {
-      const { gender, name } = watch();
       return !(name && gender);
     }
     const answers = watch("answers");
@@ -168,6 +176,7 @@ const Test = () => {
 
   const onSubmit = useCallback(
     async (data) => {
+      console.log("data : ", data);
       const { name, gender, startDtm } = data;
       const answers = data?.answers
         ?.sort((a, b) => {
@@ -238,39 +247,41 @@ const Test = () => {
 
   return (
     <div className="container">
-
-      <form ref={formRef} noValidate onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <input ref={register} type="hidden" name="startDtm" />
+
         <Wrapper pageIndex={currentPageIndex}>
           <Container>
-              <Intro>내 가치관에 맞는 찰떡 직업은 무엇일까?<br /> 내게 딱 맞는 직업 찾기 테스트</Intro>
+            <Intro>
+              내 가치관에 맞는 찰떡 직업은 무엇일까?
+              <br /> 내게 딱 맞는 직업 찾기 테스트
+            </Intro>
 
-              {/* 제목 작성 */}
-              <Title>Find My Fit Job</Title>
+            {/* 제목 작성 */}
+            <Title>Find My Fit Job</Title>
 
-              {/* 이름 작성 */}
-              <FormContainer>
-                  <Label>이름</Label>
+            <input type="text" {...register("testText")} />
 
-                  {/* <InputField type='text' name='username' value={username} placeholder='ex) 김영희, Jasmine 등' onChange={onChangeField} /> */}
+            {/* 이름 작성 */}
+            <FormContainer>
+              <Label>이름</Label>
 
-                  {/* <InputComponent errors={errors}  ref={register} /> */}
+              {/* <InputField type='text' name='username' value={username} placeholder='ex) 김영희, Jasmine 등' onChange={onChangeField} /> */}
 
-                  <InputField
-                    type='text'
-                    ref={register}
-                    name="name"
-                    className={[
-                      "form-control",
-                      errors?.name && "is-invalid",
-                    ].join(" ")}
-                    placeholder='ex) 김영희, Jasmine 등'
-                  />
-                  <div className="invalid-feedback">
-                    {errors?.name?.message}
-                  </div>
+              <InputComponent errors={errors} ref={register} />
 
-                  {/* <input
+              {/* <InputField */}
+              {/*   type="text" */}
+              {/*   ref={register} */}
+              {/*   name="name" */}
+              {/*   className={["form-control", errors?.name && "is-invalid"].join( */}
+              {/*     " " */}
+              {/*   )} */}
+              {/*   placeholder="ex) 김영희, Jasmine 등" */}
+              {/* /> */}
+              <div className="invalid-feedback">{errors?.name?.message}</div>
+
+              {/* <input
                     ref={register}
                     name="name"
                     type="text"
@@ -282,23 +293,28 @@ const Test = () => {
                   <div className="invalid-feedback">
                     {errors?.name?.message}
                   </div> */}
+            </FormContainer>
 
-              </FormContainer>
+            {/* 성별 선택 */}
+            <FormContainer>
+              <Label>성별</Label>
+              <GenderRadioButtonComponent ref={register} />
+            </FormContainer>
 
-              {/* 성별 선택 */}
-              <FormContainer>
-                <Label>성별</Label>
-                <GenderRadioButtonComponent ref={register} />
-              </FormContainer>
+            {/* 시작화면 버튼 */}
+            <StartButtonComponent
+              type={"button"}
+              disabled={isNextDisabled}
+              text={"내 직업 알아보기"}
+              onclick={handleNextClick}
+            />
 
-              {/* 시작화면 버튼 */}
-              <StartButtonComponent type={'button'} disabled={isNextDisabled} text={'내 직업 알아보기'} onclick={handleNextClick} />
-            
-              <Footer>made by Jasmine &nbsp;<Logo src={Whale} /></Footer>
-
+            <Footer>
+              made by Jasmine &nbsp;
+              <Logo src={Whale} />
+            </Footer>
           </Container>
         </Wrapper>
-
 
         {/* 페이지가 0부터 시작하는데 위 페이지가 랜딩페이지 다음부터는 검사 예시 페이지 */}
         {currentPageIndex === 1 && (
@@ -319,7 +335,6 @@ const Test = () => {
               표시하세요.
             </h4>
 
-
             <Question
               qitemNo={999}
               question="두 개 가치 중에 자신에게 더 중요한 가치를 선택하세요."
@@ -332,7 +347,6 @@ const Test = () => {
                 setSelectedSampleValue(answerScore);
               }}
             />
-
 
             <div className="text-center">
               <button
@@ -420,8 +434,7 @@ const Test = () => {
           </div>
         )}
 
-        {/* 여기 footer 넣으면 되겠다 */}
-
+        <button type="submit">Test button</button>
       </form>
     </div>
   );
