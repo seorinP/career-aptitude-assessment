@@ -7,12 +7,12 @@ import api from "utils/api";
 import { useHistory } from "react-router-dom";
 import { genders } from "utils/constants";
 import Question from "./Question";
-import ProgressBar from "./ProgressBar";
+import ProgressBar from "../../components/ProgressBar";
 import styled from 'styled-components';
 import Whale from '../../assets/common/whale.png';
 import GenderRadioButtonComponent from '../../components/GenderRadioButtonComponent';
 import StartButtonComponent from '../../components/StartButtonComponent';
-// import InputComponent from '../../components/InputComponent';
+import InputComponent from '../../components/InputComponent';
 
 yup.setLocale(ko);
 
@@ -238,9 +238,9 @@ const Test = () => {
 
   return (
     <div className="container">
-
       <form ref={formRef} noValidate onSubmit={handleSubmit(onSubmit)}>
         <input ref={register} type="hidden" name="startDtm" />
+
         <Wrapper pageIndex={currentPageIndex}>
           <Container>
               <Intro>내 가치관에 맞는 찰떡 직업은 무엇일까?<br /> 내게 딱 맞는 직업 찾기 테스트</Intro>
@@ -251,38 +251,7 @@ const Test = () => {
               {/* 이름 작성 */}
               <FormContainer>
                   <Label>이름</Label>
-
-                  {/* <InputField type='text' name='username' value={username} placeholder='ex) 김영희, Jasmine 등' onChange={onChangeField} /> */}
-
-                  {/* <InputComponent errors={errors}  ref={register} /> */}
-
-                  <InputField
-                    type='text'
-                    ref={register}
-                    name="name"
-                    className={[
-                      "form-control",
-                      errors?.name && "is-invalid",
-                    ].join(" ")}
-                    placeholder='ex) 김영희, Jasmine 등'
-                  />
-                  <div className="invalid-feedback">
-                    {errors?.name?.message}
-                  </div>
-
-                  {/* <input
-                    ref={register}
-                    name="name"
-                    type="text"
-                    className={[
-                      "form-control",
-                      errors?.name && "is-invalid",
-                    ].join(" ")}
-                  />
-                  <div className="invalid-feedback">
-                    {errors?.name?.message}
-                  </div> */}
-
+                  <InputComponent errors={errors}  ref={register} />
               </FormContainer>
 
               {/* 성별 선택 */}
@@ -312,7 +281,9 @@ const Test = () => {
                   <h3>{progressPercentage}%</h3>
                 </div>
               </div>
+
               <ProgressBar percentage={progressPercentage} />
+
             </div>
             <h4 className="mb-4">
               직업과 관련된 두개의 가치 중에서 자기에게 더 중요한 가치에

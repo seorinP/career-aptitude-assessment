@@ -21,6 +21,12 @@ const Button = styled.button`
     font-size:2.0rem;
     text-align:center;
     border:none;
+
+    &:disabled {
+        background: white;
+        color: orange;
+        cursor: not-allowed;
+    }
 `
 
 function StartButtonComponent({ idx, disabled, type, text, onclick }) {

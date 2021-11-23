@@ -22,13 +22,13 @@ const InputComponent = React.forwardRef((props, ref) => {
                 ref={ref}
                 className={[
                     "form-control",
-                    (props => props.errors)?.name && "is-invalid",
+                    props.errors.name && "is-invalid",
                 ].join(" ")}
                 placeholder='ex) 김영희, Jasmine 등'
             />
 
             <div className="invalid-feedback">
-                {errors?.name?.message}
+                {props.errors.name?.message}
             </div>
         </>
     );
