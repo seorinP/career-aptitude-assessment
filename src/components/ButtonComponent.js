@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 //type에 따라서 초록 버튼인지 회색 테두리 버튼인지 결정하게 수정하면 편함
 
-const Button = styled.div`
+const Button = styled.button`
     width: 29.2rem;
     height: 7rem;
 

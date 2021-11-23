@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = styled.div`
+const Button = styled.button`
     width: ${props =>
         props.type === 'result-activated' ? '28.8rem'
             : props.type === 'result-unactivated' ? '28.2rem'
