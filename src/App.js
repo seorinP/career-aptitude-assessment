@@ -1,27 +1,34 @@
-import logo from './assets/logo.svg';
-import './App.css';
-import {useEffect, useState} from 'react';
+import { Redirect, Route, Switch } from "react-router-dom";
+import { setLocale } from "yup";
+import ko from "yup-locales-ko";
+import "bootstrap/dist/css/bootstrap.min.css";
 
+import Test from "pages/Test";
+import Result from "pages/Result";
 
-function App() {
+import "./App.css";
+import Completed from "pages/Completed";
+setLocale(ko);
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="py-5">
+      <Switch>
+        <Route path="/test">
+          <Test />
+        </Route>
+        <Route path="/completed/:seq">
+          <Completed />
+        </Route>
+        <Route path="/result/:seq">
+          <Result />
+        </Route>
+        <Route path="/" exact>
+          <Redirect to="/test" />
+        </Route>
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;
