@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProgressBar = ({ percentage }) => {
+const ProgressBar = ({ text, percentage }) => {
 
 
   const containerStyles = {
@@ -27,6 +27,17 @@ const ProgressBar = ({ percentage }) => {
 
   return (
     <>
+      <div className="row justify-content-between">
+              {/* 여긴 Logo가 든 Header를 넣자. Home으로 돌아가기 */}
+              {/* 검사 진행에 스타일 입히기 */}
+              <div className="col col-auto">
+                <h2>{text}</h2>
+              </div>
+              <div className="col col-auto">
+                <h3>{percentage}%</h3>
+              </div>
+            </div>
+
       <div style={containerStyles}>
         <div
           role = 'progressbar'

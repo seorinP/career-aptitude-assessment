@@ -178,8 +178,6 @@ const Test = () => {
           onClick={handleNextClick} />
 
         
-        {/* 페이지가 0부터 시작하는데 위 페이지가 랜딩페이지 다음부터는 검사 예시 페이지 */}
-        
         <TestExample 
           setSelectedValue={setSelectedSampleValue}
           initialValue={selectedSampleValue}
@@ -194,24 +192,11 @@ const Test = () => {
         {/* 본격적으로 검사 시작 */}
         {currentPageIndex > 1 && (
           <div className="mb-4">
-            <div className="row justify-content-between">
-              {/* 여긴 Logo가 든 Header를 넣자. Home으로 돌아가기 */}
-              {/* 검사 진행에 스타일 입히기 */}
-              <div className="col col-auto">
-                <h2>검사 진행</h2>
-              </div>
-              <div className="col col-auto">
-                <h3>{progressPercentage}%</h3>
-              </div>
-            </div>
-            <ProgressBar percentage={progressPercentage} />
+            <ProgressBar text={'검사 진행'} percentage={progressPercentage} />
           </div>
         )}
 
-        {/*여기서 question들을 선택지와 함께 불러오는 듯*/}
-
         <QuestionList questions={questions} visibleQuestions={visibleQuestions} ref={register} />
-
 
         {/* 아래 버튼들 */}
         {currentPageIndex > 1 && (
