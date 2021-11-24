@@ -29,12 +29,12 @@ const Button = styled.button`
     }
 `
 
-function StartButtonComponent({ idx, disabled, type, text, onclick }) {
+function StartButton({ disabled, type, text, onClick }) {
 
     return (
-        <Button type={type} disabled={disabled} onClick={onclick}>{text}</Button>
+        <Button type={type} disabled={disabled} onClick={onClick}>{text}</Button>
     );
 
 }
 
-export default StartButtonComponent;
+export default StartButton;

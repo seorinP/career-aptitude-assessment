@@ -69,7 +69,7 @@ const RadioButton = styled.input`
 
 
 
-const GenderRadioButtonComponent = React.forwardRef((props, ref) => {
+const GenderRadioButton = React.forwardRef((props, ref) => {
   const [select, setSelect] = useState('');
 
   const handleSelectChange = (event) => {
@@ -112,4 +112,4 @@ const GenderRadioButtonComponent = React.forwardRef((props, ref) => {
 });
 
 
-export default GenderRadioButtonComponent;
+export default GenderRadioButton;

@@ -12,7 +12,7 @@ const InputField = styled.input`
     padding-right: 0.5rem;
 `
 
-const InputComponent = React.forwardRef((props, ref) => {
+const InputName = React.forwardRef((props, ref) => {
 
     return (
         <>
@@ -34,4 +34,4 @@ const InputComponent = React.forwardRef((props, ref) => {
     );
 });
 
-export default InputComponent;
+export default InputName;
