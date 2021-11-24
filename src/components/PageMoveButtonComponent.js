@@ -12,7 +12,6 @@ const Button = styled.button`
                 : props.theme.white};
     cursor:pointer;
     // margin : 0rem;
-    // rem으로 하니까 동적이지 못함
     margin-left : ${props =>
         props.type === 'previous' ? '0rem' : '33rem'};
     display: inline-flex;

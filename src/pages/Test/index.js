@@ -7,12 +7,14 @@ import api from "utils/api";
 import { useHistory } from "react-router-dom";
 import { genders } from "utils/constants";
 
+import Landing from '../Landing/index';
 import Question from "./Question";
+import QuestionList from "./QuestionList";
 import ProgressBar from "../../components/ProgressBarComponent";
 import StartButton from '../../components/StartButtonComponent';
 import FooterComponent from '../../components/FooterComponent';
 import PageMoveButton from '../../components/PageMoveButtonComponent';
-import Landing from '../Landing/index';
+
 
 yup.setLocale(ko);
 
@@ -218,21 +220,15 @@ const Test = () => {
               }}
             />
 
-            
-
 
             <div className="text-center">
-
               {/* 이전 다음 버튼 */}
               <PageMoveButton type={'previous'} text={'이전'} onClick={handlePrevClick} />
-
               &nbsp;
-
               <StartButton type={'button'} disabled={!selectedSampleValue} text={'검사 시작'} onClick={handleNextClick} />
-
             </div>
 
-            <FooterComponent />
+
           </div>
         )}
 
@@ -254,33 +250,8 @@ const Test = () => {
         )}
 
         {/*여기서 question들을 선택지와 함께 불러오는 듯*/}
-        {questions.map(
-          ({
-            question,
-            answer01,
-            answer02,
-            answerScore01,
-            answerScore02,
-            qitemNo,
-          }) => {
-            return (
-              <Question
-                invisible={
-                  !visibleQuestions.find((visibleQuestion) => {
-                    return visibleQuestion.qitemNo === qitemNo;
-                  })
-                }
-                ref={register}
-                qitemNo={qitemNo}
-                question={question}
-                answer01={answer01}
-                answer02={answer02}
-                answerScore01={answerScore01}
-                answerScore02={answerScore02}
-              />
-            );
-          }
-        )}
+
+        <QuestionList questions={questions} visibleQuestions={visibleQuestions} ref={register} />
 
 
         {/* 아래 버튼들 */}
