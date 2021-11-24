@@ -8,16 +8,13 @@ import { useHistory } from "react-router-dom";
 import { genders } from "utils/constants";
 
 import Landing from '../Landing/index';
-import Question from "./Question";
+import TestExample from '../TestExample/index'
 import QuestionList from "./QuestionList";
 import ProgressBar from "../../components/ProgressBarComponent";
-import StartButton from '../../components/StartButtonComponent';
 import FooterComponent from '../../components/FooterComponent';
 import PageMoveButton from '../../components/PageMoveButtonComponent';
 
-
 yup.setLocale(ko);
-
 
 
 const Test = () => {
@@ -40,8 +37,6 @@ const Test = () => {
     return false;
   }, [questions]);
 
-
-{/* 여기서 문항을 5개씩 잘라주는구나 */}
   const visibleQuestions = useMemo(() => {
     if (currentPageIndex <= 1) {
       return [];
@@ -184,53 +179,17 @@ const Test = () => {
 
         
         {/* 페이지가 0부터 시작하는데 위 페이지가 랜딩페이지 다음부터는 검사 예시 페이지 */}
-        {currentPageIndex === 1 && (
-          <div>
-            <div className="mb-4">
-              <div className="row justify-content-between">
-                <div className="col col-auto">
-                  <h2>검사 예시</h2>
-                </div>
-                <div className="col col-auto">
-                  <h3>{progressPercentage}%</h3>
-                </div>
-              </div>
-
-              <ProgressBar percentage={progressPercentage} />
-
-            </div>
-            <h4 className="mb-4">
-              직업과 관련된 두개의 가치 중에서 자기에게 더 중요한 가치에
-              표시하세요.
-            </h4>
-
-
-            {/* Question.js 컴포넌트. 속성 forwardRef로 전달 */}
-            {/* 검사 예시 페이지용 문제 */}
-            <Question
-              qitemNo={999}
-              question="두 개 가치 중에 자신에게 더 중요한 가치를 선택하세요."
-              answer01="창의성"
-              answer02="안정성"
-              answerScore01={-1}
-              answerScore02={-2}
-              initialValue={selectedSampleValue}
-              onChange={(qitemNo, answerScore) => {
-                setSelectedSampleValue(answerScore);
-              }}
-            />
-
-
-            <div className="text-center">
-              {/* 이전 다음 버튼 */}
-              <PageMoveButton type={'previous'} text={'이전'} onClick={handlePrevClick} />
-              &nbsp;
-              <StartButton type={'button'} disabled={!selectedSampleValue} text={'검사 시작'} onClick={handleNextClick} />
-            </div>
-
-
-          </div>
-        )}
+        
+        <TestExample 
+          setSelectedValue={setSelectedSampleValue}
+          initialValue={selectedSampleValue}
+          disabled={!selectedSampleValue}
+          pageIndex={currentPageIndex} 
+          progressPercentage={progressPercentage}
+          onClick1={handlePrevClick}
+          onClick2={handleNextClick}
+        />
+        
 
         {/* 본격적으로 검사 시작 */}
         {currentPageIndex > 1 && (
@@ -272,7 +231,6 @@ const Test = () => {
         </>
         )}
 
-        {/* 여기 footer 넣으면 되겠다 */}
         <FooterComponent />
 
       </form>
