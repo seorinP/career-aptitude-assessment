@@ -46,11 +46,12 @@ const Modal = ({name, gender, type, onClick, modalClose}) => {
         }
 
     }
+
     return (
         <Wrapper onClick={onCloseModal}>
             <Container>
                 <Label>
-                    이름이 {name}이고 성별이 {gender}가 맞으십니까?
+                    이름이 {name}이고 성별이 {gender=='100323' ? "남자" : "여자"}가 맞으십니까?
                 </Label>
                 <Button 
                     type={type}

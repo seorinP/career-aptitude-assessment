@@ -161,6 +161,10 @@ const Test = () => {
     return 0;
   }, [watch]);
 
+  const watchUserName = watch("name");
+  const watchUserGender = watch("gender");
+
+
   useEffect(() => {
     fetchQuestions();
   }, [fetchQuestions]);
@@ -176,10 +180,9 @@ const Test = () => {
     <Wrapper>
     <div className="container">
       <form ref={formRef} noValidate onSubmit={handleSubmit(onSubmit)}>
-        
         <Landing 
-          // name={}
-          // gender={}
+          name={watchUserName}
+          gender={watchUserGender}
           ref={register} 
           pageIndex={currentPageIndex} 
           errors={errors} 
