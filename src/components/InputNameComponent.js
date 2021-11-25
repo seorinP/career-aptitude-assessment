@@ -7,6 +7,7 @@ const InputField = styled.input`
     outline: none;
     border-radius: 0px;
     line-height: 2.5rem;
+    font-family: 'Binggrae';
     font-size: 1.2rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;

@@ -9,7 +9,6 @@ import ModalContainer from '../../components/ModalContainerComponent';
 const Wrapper = styled.div`
     display:${props => props.pageIndex === 0 ? 'flex' : 'none'};
     width:100%;
-    // background-color:pink;
     flex-direction:column;
     align-items:center;
     justify-content:center;
@@ -22,16 +21,16 @@ const Container = styled.div`
 `
 
 const Intro = styled.div`
-    font-family:'Spoqa-Han-Sans';
+    font-family:'Binggrae';
     font-size:1.4rem;
     font-weight:400;
     text-align:center;
-    color:#A7A7A7;
+    color:#FFFFFF;
     margin-bottom:4rem;
 `
 
 const Title = styled.div`
-    font-family:'Jalnan';
+    font-family:'Binggrae-Bold';
     font-size:2.5rem;
     text-align:center;
     color:#6B3FA0;
@@ -45,6 +44,7 @@ const FormContainer = styled.div`
 `
 
 const Label = styled.div`
+    font-family:'Binggrae-Bold';
     text-align: left;
     font-size: 1rem;
     color: ##6B3FA0;

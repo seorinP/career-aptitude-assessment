@@ -5,14 +5,14 @@ import styled from 'styled-components';
 // 맨 처음 시작하기 버튼
 const Button = styled.button`
     width: 29.2rem;
-    height: 7rem;
+    height: 6.5rem;
     border-radius: 1.5rem;
-    // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: ${props => props.type === 'button' ? '#8B748D' : props.theme.white};
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: ${props => props.type === 'button' ? '#8B748D' : 'pink'};
     cursor:pointer;
     margin : 1.5rem;
     display: inline-flex;
-    font-family:'Jalnan';
+    font-family:'Binggrae-Bold';
     color:white;
     display:flex;
     justify-content:center;

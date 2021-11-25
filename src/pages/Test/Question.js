@@ -23,10 +23,12 @@ const Question = forwardRef(
         }}
         key={`question${qitemNo}`}
       >
+
         <div className="card bg-light py-4">
           <div className="card-body text-center">
             <div>{question}</div>
             <div>
+
               <div className="form-check form-check-inline">
                 <label className="form-check-label">
                   <input
@@ -45,6 +47,8 @@ const Question = forwardRef(
                   {answer01}
                 </label>
               </div>
+
+
               <div className="form-check form-check-inline">
                 <label className="form-check-label">
                   <input
@@ -63,6 +67,8 @@ const Question = forwardRef(
                   {answer02}
                 </label>
               </div>
+
+              
             </div>
           </div>
         </div>

@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import Whale from '../assets/common/whale.png';
 
 const HeaderContainer = styled.div`
-    font-family:'Spoqa-Han-Sans';
-    font-size:1.4rem;
+    font-family:'Binggrae-Bold';
+    font-size:1.0rem;
     font-weight:400;
     text-align:left;
     color:#A7A7A7;
+    margin-left: 1.3rem;
+    margin-bottom: 3.6rem;
 `
 
 const Logo = styled.img`
@@ -16,7 +18,7 @@ const Logo = styled.img`
 
 function Header() {
     return (
-        <HeaderContainer><Logo src={Whale} /> &nbsp; 직업가치관검사</HeaderContainer>
+        <HeaderContainer><Logo src={Whale} />&nbsp;직업가치관검사</HeaderContainer>
     );
 }
 

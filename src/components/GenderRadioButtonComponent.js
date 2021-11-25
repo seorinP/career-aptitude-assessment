@@ -16,6 +16,11 @@ const Item = styled.div`
   position: relative;
 `;
 
+const Text = styled.div`
+  font-family:'Binggrae';
+  font-size:1.3rem;
+`
+
 const RadioButtonLabel = styled.label`
   position: absolute;
   top: 25%;
@@ -91,7 +96,7 @@ const GenderRadioButton = React.forwardRef((props, ref) => {
           onChange={(event) => handleSelectChange(event)}
         />
         <RadioButtonLabel />
-        <div>남자</div>
+        <Text>남자</Text>
       </Item>
 
       <Item className='form-check-label'>
@@ -105,7 +110,7 @@ const GenderRadioButton = React.forwardRef((props, ref) => {
           onChange={(event) => handleSelectChange(event)}
         />
         <RadioButtonLabel />
-        <div>여자</div>
+        <Text>여자</Text>
       </Item>
     </Wrapper>
   );

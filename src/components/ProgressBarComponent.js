@@ -1,4 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Text = styled.div`
+  font-family:'Binggrae-Bold';
+  font-size:1.5rem;
+`
 
 const ProgressBar = ({ text, percentage }) => {
 
@@ -31,7 +37,7 @@ const ProgressBar = ({ text, percentage }) => {
               {/* 여긴 Logo가 든 Header를 넣자. Home으로 돌아가기 */}
               {/* 검사 진행에 스타일 입히기 */}
               <div className="col col-auto">
-                <h2>{text}</h2>
+                <Text>{text}</Text>
               </div>
               <div className="col col-auto">
                 <h3>{percentage}%</h3>

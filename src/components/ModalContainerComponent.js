@@ -10,12 +10,12 @@ const Button = styled.button`
     width: 29.2rem;
     height: 7rem;
     border-radius: 1.5rem;
-    // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background-color: ${props => props.type === 'button' ? '#8B748D' : props.theme.white};
     cursor:pointer;
     margin : 1.5rem;
     display: inline-flex;
-    font-family:'Jalnan';
+    font-family:'Binggrae-Bold';
     color:white;
     display:flex;
     justify-content:center;

@@ -6,7 +6,7 @@ import { useCallback, useEffect, useMemo, forwardRef, useRef, useState } from "r
 import api from "utils/api";
 import { useHistory } from "react-router-dom";
 import { genders } from "utils/constants";
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
 import Landing from '../Landing/index';
 import TestExample from '../TestExample/index'
@@ -18,21 +18,6 @@ import PageMoveButton from '../../components/PageMoveButtonComponent';
 
 yup.setLocale(ko);
 
-const TestDiv = styled.div`
-    border: 10px solid #000;
-`
-
-const Reset = styled.div`
-  * {
-    margin: 0;
-    padding: 0;
-  }
-`;
-
-const FullScreen = styled.div`
-  height: 100vh;
-  width: 100vw;
-`;
 
 const Gradient = styled.div`
   background: linear-gradient(
@@ -43,6 +28,7 @@ const Gradient = styled.div`
   height: 100%;
   width: 100%;
 `;
+
 
 const Wrapper = styled.div`
   background: linear-gradient(
@@ -214,6 +200,7 @@ const Test = () => {
     <Wrapper hue={340}>
     {/* <div className="container"> */}
       <Header />
+      
       <form ref={formRef} noValidate onSubmit={handleSubmit(onSubmit)}>
         <Landing 
           name={watchUserName}
@@ -248,11 +235,12 @@ const Test = () => {
         {/* 아래 버튼들 */}
         {currentPageIndex > 1 && (
         <>
-          <div className="d-flex justify-content-between">
+          <div className="button d-flex justify-content-between">
 
-          <PageMoveButton type={'previous'} disabled={currentPageIndex <= 0} text={'이전'} onClick={handlePrevClick} />
+          <PageMoveButton className='button' type={'previous'} disabled={currentPageIndex <= 0} text={'이전'} onClick={handlePrevClick} />
   
           <PageMoveButton 
+            className='button'
             type={currentPageIndex >= lastPageIndex ? "submit" : "button"} 
             disabled={currentPageIndex <= 0} 
             text={currentPageIndex === lastPageIndex ? "제출" : "다음"}

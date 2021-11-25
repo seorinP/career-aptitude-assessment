@@ -10,6 +10,7 @@ import "./App.css";
 import Completed from "pages/Completed";
 setLocale(ko);
 
+
 const App = () => {
   return (
     // <div className="py-5">

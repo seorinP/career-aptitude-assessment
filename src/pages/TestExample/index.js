@@ -2,7 +2,6 @@ import React from "react";
 import Question from "../Test/Question";
 import ProgressBar from "../../components/ProgressBarComponent";
 import PageMoveButton from '../../components/PageMoveButtonComponent';
-import StartButton from '../../components/StartButtonComponent';
 
 
 
@@ -10,7 +9,6 @@ function TestExample({ setSelectedValue, initialValue, disabled, pageIndex, prog
     return (
         pageIndex === 1 && (
             <>
-            <div>
               <div className="mb-4">
                 <ProgressBar text={'검사 예시'} percentage={progressPercentage} />
               </div>
@@ -33,16 +31,12 @@ function TestExample({ setSelectedValue, initialValue, disabled, pageIndex, prog
                 }}
               />
   
-  
-              <div className="text-center">
+              <div className="d-flex justify-content-between">
                 {/* 이전 다음 버튼 */}
-                <PageMoveButton type={'previous'} text={'이전'} onClick={onClick1} />
+                <PageMoveButton type={'previous'} text={'처음 화면으로'} onClick={onClick1} />
                 &nbsp;
-                <StartButton type={'button'} disabled={disabled} text={'검사 시작'} onClick={onClick2} />
+                <PageMoveButton type={'next'} disabled={disabled} text={'검사 시작'} onClick={onClick2} />
               </div>
-  
-  
-            </div>
             </>
           )
     );

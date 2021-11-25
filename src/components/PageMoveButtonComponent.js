@@ -9,9 +9,8 @@ const Button = styled.button`
     background-color: ${props =>
         props.type === 'previous' ? '#00462A'
             : props.type === 'previous' ? '#00462A'
-                : props.theme.white};
+                : 'pink'};
     cursor:pointer;
-    // margin : 0rem;
     margin-left : ${props =>
         props.type === 'previous' ? '0rem' : '33rem'};
     display: inline-flex;
@@ -26,7 +25,7 @@ const Button = styled.button`
     font-weight: 400;
     font-size:1.125rem;
     text-align:center;
-    border:${props => props.type === 'previous' ? '3px solid #00462A' : '3px solid lightgray'};
+    // border:${props => props.type === 'previous' ? '3px solid #00462A' : '3px solid lightgray'};
 
     /* :hover{
         background-color: ${props => '#previous'};

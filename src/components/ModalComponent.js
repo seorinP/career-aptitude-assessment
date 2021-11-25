@@ -28,6 +28,7 @@ const Container = styled.div `
     z-index: 101;
 `
 const Label = styled.div`
+    font-family:'Binggrae';
     text-align: left;
     font-size: 1rem;
     color: ##6B3FA0;
@@ -36,11 +37,12 @@ const Label = styled.div`
 `
 
 const Button = styled.button `
+font-family:'Binggrae-Bold';
     color: white;
     background: linear-gradient(225deg, #00DBDE 0%, #FC00FF 100%);
     font-size: 1rem;
     padding: 0.75rem 2rem;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     boder: none;
     border-radius: 4px;

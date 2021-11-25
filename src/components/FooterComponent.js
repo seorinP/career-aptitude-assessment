@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Whale from '../assets/common/whale.png';
 
 const Footer = styled.div`
-    font-family:'Spoqa-Han-Sans';
+    font-family:'Binggrae-Bold';
     font-size:1.4rem;
     font-weight:400;
     text-align:center;
