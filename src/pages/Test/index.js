@@ -12,6 +12,7 @@ import Landing from '../Landing/index';
 import TestExample from '../TestExample/index'
 import QuestionList from "./QuestionList";
 import ProgressBar from "../../components/ProgressBarComponent";
+import Header from '../../components/HeaderComponent';
 import FooterComponent from '../../components/FooterComponent';
 import PageMoveButton from '../../components/PageMoveButtonComponent';
 
@@ -212,6 +213,7 @@ const Test = () => {
     <>
     <Wrapper hue={340}>
     {/* <div className="container"> */}
+      <Header />
       <form ref={formRef} noValidate onSubmit={handleSubmit(onSubmit)}>
         <Landing 
           name={watchUserName}

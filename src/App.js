@@ -12,7 +12,8 @@ setLocale(ko);
 
 const App = () => {
   return (
-    <div className="py-5">
+    // <div className="py-5">
+    <div>
       <Switch>
         <Route path="/test">
           <Test />
