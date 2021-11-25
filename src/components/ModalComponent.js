@@ -11,15 +11,21 @@ const Wrapper = styled.div `
     left: 0;
 `
 const Container = styled.div `
-    width: 500px;
-    height: 300px;
-    background-color: #fff;
-    // Modal 창 브라우저 가운데로 조정
-    position: absolute;
+    display: grid;
+    text-align: center;
+    place-items: center;
+    position: relative;
+    top: 50%;
     left: 50%;
-    top:50%;
     transform: translate(-50%, -50%);
-    z-index:100;
+    max-width: 20em;
+    min-height: 15em;
+    padding: 2.5em;
+    overflow-y: auto;
+    color: #333;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    z-index: 101;
 `
 const Label = styled.div`
     text-align: left;
@@ -30,10 +36,23 @@ const Label = styled.div`
 `
 
 const Button = styled.button `
-    position: relative;
-    left: 50%;
-    top:50%;
-    transform: translate(-50%, -50%);
+    color: white;
+    background: linear-gradient(225deg, #00DBDE 0%, #FC00FF 100%);
+    font-size: 1rem;
+    padding: 0.75rem 2rem;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    boder: none;
+    border-radius: 4px;
+    margin: 0.5rem;
+    font-weight: 700;
+    border-bottom: solid 2px rgba(0, 0, 0, 0.2);
+    transition: all 0.1s;
+
+    &:hover {
+    transform: translateY(1px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    }
 `
 
 const Modal = ({name, gender, type, onClick, modalClose}) => {

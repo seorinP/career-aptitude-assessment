@@ -6,7 +6,7 @@ import { useCallback, useEffect, useMemo, forwardRef, useRef, useState } from "r
 import api from "utils/api";
 import { useHistory } from "react-router-dom";
 import { genders } from "utils/constants";
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import Landing from '../Landing/index';
 import TestExample from '../TestExample/index'
@@ -17,9 +17,41 @@ import PageMoveButton from '../../components/PageMoveButtonComponent';
 
 yup.setLocale(ko);
 
+const TestDiv = styled.div`
+    border: 10px solid #000;
+`
+
+const Reset = styled.div`
+  * {
+    margin: 0;
+    padding: 0;
+  }
+`;
+
+const FullScreen = styled.div`
+  height: 100vh;
+  width: 100vw;
+`;
+
+const Gradient = styled.div`
+  background: linear-gradient(
+    20deg,
+    hsl(${props => props.hue}, 60%, 65%),
+    hsl(${props => props.hue - 305}, 64%, 60%)
+  );
+  height: 100%;
+  width: 100%;
+`;
 
 const Wrapper = styled.div`
-    background-color:orange;
+  background: linear-gradient(
+    20deg,
+    hsl(${props => props.hue}, 60%, 65%),
+    hsl(${props => props.hue - 305}, 64%, 60%)
+  );
+  height: 100%;
+  width: 100%;
+  padding-top: 0px;
 `
 
 const Test = () => {
@@ -177,8 +209,9 @@ const Test = () => {
   }, [currentPageIndex]);
 
   return (
-    <Wrapper>
-    <div className="container">
+    <>
+    <Wrapper hue={340}>
+    {/* <div className="container"> */}
       <form ref={formRef} noValidate onSubmit={handleSubmit(onSubmit)}>
         <Landing 
           name={watchUserName}
@@ -231,8 +264,9 @@ const Test = () => {
         <FooterComponent />
 
       </form>
-    </div>
+    {/* </div> */}
     </Wrapper>
+    </>
   );
 };
 

@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 import InputName from '../../components/InputNameComponent';
 import GenderRadioButton from '../../components/GenderRadioButtonComponent';
-import StartButton from '../../components/StartButtonComponent';
 import ModalContainer from '../../components/ModalContainerComponent';
+
 
 const Wrapper = styled.div`
     display:${props => props.pageIndex === 0 ? 'flex' : 'none'};
     width:100%;
-    background-color:white;
+    // background-color:pink;
     flex-direction:column;
     align-items:center;
     justify-content:center;
@@ -77,8 +77,7 @@ const Landing = React.forwardRef((props, ref) => {
                     <GenderRadioButton ref={ref} />
                 </FormContainer>
 
-                {/* 시작화면 버튼 */}
-                {/* <StartButton type={'button'} disabled={props.disabled} text={'내 직업 알아보기'} onClick={props.onClick} /> */}
+                {/* 모달창 버튼 */}
                 <ModalContainer name={props.name} gender={props.gender} type={'button'} disabled={props.disabled} onClick={props.onClick} />
 
             </Container>

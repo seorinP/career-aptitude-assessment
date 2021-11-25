@@ -11,7 +11,6 @@ const Result = () => {
     return report && report?.user && report?.inspct && report?.result;
   }, [report]);
 
-  // const [interpretations, setInterpretations] = useState(null);
 
   const [majors, setMajors] = useState(null);
   const [jobs, setJobs] = useState(null);
@@ -72,12 +71,6 @@ const Result = () => {
     }
   }, [reportSeq]);
 
-  // const fetchInterpretation = useCallback(async () => {
-  //   const res = await api.result.getInterpretation();
-  //   if (res) {
-  //     setInterpretations(res);
-  //   }
-  // }, []);
 
   const fetchMajors = useCallback(async () => {
     if (Array.isArray(sortedReportScores) && sortedReportScores.length > 2) {
@@ -112,10 +105,6 @@ const Result = () => {
   useEffect(() => {
     fetchReport();
   }, [fetchReport]);
-
-  // useEffect(() => {
-  //   fetchInterpretation();
-  // }, [fetchInterpretation]);
 
   useEffect(() => {
     fetchMajors();
