@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import InputName from '../../components/InputNameComponent';
 import GenderRadioButton from '../../components/GenderRadioButtonComponent';
 import StartButton from '../../components/StartButtonComponent';
+import ModalContainer from '../../components/ModalContainerComponent';
 
 const Wrapper = styled.div`
     display:${props => props.pageIndex === 0 ? 'flex' : 'none'};
@@ -51,7 +52,8 @@ const Label = styled.div`
     margin-bottom: 0.25rem;
 `
 
-const Landing = React.forwardRef((props, ref) => {
+const Landing = React.forwardRef((props, ref) => { 
+
     return (
         <>
         <input ref={ref} type="hidden" name="startDtm" />
@@ -76,7 +78,8 @@ const Landing = React.forwardRef((props, ref) => {
                 </FormContainer>
 
                 {/* 시작화면 버튼 */}
-                <StartButton type={'button'} disabled={props.disabled} text={'내 직업 알아보기'} onClick={props.onClick} />
+                {/* <StartButton type={'button'} disabled={props.disabled} text={'내 직업 알아보기'} onClick={props.onClick} /> */}
+                <ModalContainer name={props.name} gender={props.gender} type={'button'} disabled={props.disabled} onClick={props.onClick} />
 
             </Container>
         </Wrapper>

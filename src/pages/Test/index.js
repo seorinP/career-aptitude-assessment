@@ -6,6 +6,7 @@ import { useCallback, useEffect, useMemo, forwardRef, useRef, useState } from "r
 import api from "utils/api";
 import { useHistory } from "react-router-dom";
 import { genders } from "utils/constants";
+import styled from 'styled-components';
 
 import Landing from '../Landing/index';
 import TestExample from '../TestExample/index'
@@ -16,6 +17,10 @@ import PageMoveButton from '../../components/PageMoveButtonComponent';
 
 yup.setLocale(ko);
 
+
+const Wrapper = styled.div`
+    background-color:orange;
+`
 
 const Test = () => {
   const history = useHistory();
@@ -160,6 +165,7 @@ const Test = () => {
     fetchQuestions();
   }, [fetchQuestions]);
 
+
   useEffect(() => {
     if (currentPageIndex <= 0) {
       setSelectedSampleValue(null);
@@ -167,10 +173,13 @@ const Test = () => {
   }, [currentPageIndex]);
 
   return (
+    <Wrapper>
     <div className="container">
       <form ref={formRef} noValidate onSubmit={handleSubmit(onSubmit)}>
         
         <Landing 
+          // name={}
+          // gender={}
           ref={register} 
           pageIndex={currentPageIndex} 
           errors={errors} 
@@ -220,7 +229,7 @@ const Test = () => {
 
       </form>
     </div>
-  
+    </Wrapper>
   );
 };
 
