@@ -12,14 +12,19 @@ const Wrapper = styled.div`
   width: 100%;
   padding-top: 0px;
 `
-
+const Boundary = styled.div `
+  margin: 4.0rem 4.8rem;
+  height: 100%;
+  justify-content:center;
+  align-items:center;
+`
 
 const Title = styled.div`
   font-family:'Binggrae-Bold';
   font-size:2.5rem;
   text-align:center;
   color:#6B3FA0;
-  margin-bottom:5.4rem;
+  margin-bottom:4.8rem;
 `
 
 const Description = styled.div`
@@ -39,22 +44,22 @@ const Button = styled.button`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background-color: orange;
     cursor:pointer;
-    display: inline-flex;
+    display: flex;
     font-family:'Binggrae-Bold';
     color:white;
-    display:flex;
     justify-content:center;
     align-items:center;
     font-weight: 400;
     font-size:2.0rem;
     text-align:center;
     border:none;
+    margin: 0 auto;
 
-    &:disabled {
-        background: white;
-        color: orange;
-        cursor: not-allowed;
-    }
+    // &:disabled {
+    //     background: white;
+    //     color: orange;
+    //     cursor: not-allowed;
+    // }
 `
 
 const { useParams, Link } = require("react-router-dom");
@@ -63,21 +68,21 @@ const Completed = () => {
   const { seq: reportSeq } = useParams();
 
   return (
-    <Wrapper hue={340}>
+    <Wrapper hue={200}>
       <Header />
+      <Boundary>
         <Title>검사가 완료되었습니다.</Title>
         <Description>
-          검사결과는 여러분이 직업을 선택할 때 상대적으로 어떠한 가치를 중요하게
-          생각하는지를 알려주고,
-          <br />
+          검사결과는 여러분이 직업을 선택할 때 <br /> 
+          상대적으로 어떠한 가치를 중요하게 생각하는지를 알려주고,<br />
           중요 가치를 충족시켜줄 수 있는 직업에 대해 생각해 볼 기회를 제공합니다.
         </Description>
 
-        <Link to={`/result/${reportSeq}`}>
-          <Button>
-            결과 보기
-          </Button>
-        </Link>
+        <Button>
+          <Link to={`/result/${reportSeq}`}> 결과 보기 </Link>
+        </Button>
+      
+        
         
         <br />
         <br />
@@ -93,6 +98,7 @@ const Completed = () => {
         <br />
         <br />
         <br />
+        </Boundary>
         <FooterComponent />
     </Wrapper>
   );

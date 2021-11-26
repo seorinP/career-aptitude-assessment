@@ -5,6 +5,10 @@ import Question from "../Test/Question";
 import ProgressBar from "../../components/ProgressBarComponent";
 import PageMoveButton from '../../components/PageMoveButtonComponent';
 
+const Boundary = styled.div `
+  margin: 4.0rem 4.5rem 2.0rem 4.5rem;
+  height: 100%;
+`
 
 const Title = styled.div`
     font-family:'Binggrae-Bold';
@@ -18,13 +22,13 @@ const Title = styled.div`
 
 function TestExample({ setSelectedValue, initialValue, disabled, pageIndex, progressPercentage, onClick1, onClick2 }) {
     return (
-            <>
+            <Boundary>
               <div className="mb-4">
                 <ProgressBar text={'검사 예시'} percentage={progressPercentage} />
               </div>
 
               <Title>
-                직업과 관련된 두개의 가치 중에서 <br/> 자기에게 더 중요한 가치에
+                직업과 관련된 두 개의 가치 중에서 <br/> 자기에게 더 중요한 가치에
                 표시하세요.
               </Title>
         
@@ -40,6 +44,7 @@ function TestExample({ setSelectedValue, initialValue, disabled, pageIndex, prog
                     setSelectedValue(answerScore);
                 }}
               />
+
   
               
               <div className="button d-flex justify-content-between">
@@ -48,7 +53,7 @@ function TestExample({ setSelectedValue, initialValue, disabled, pageIndex, prog
                 &nbsp;
                 <PageMoveButton className='button' type={'next'} disabled={disabled} text={'검사 시작'} onClick={onClick2} />
               </div>
-            </>
+            </Boundary>
     );
 }
 

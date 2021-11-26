@@ -2,14 +2,16 @@ import { forwardRef, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin-left:2rem;
-  margin-right:2rem;
+  margin-left:4rem;
+  margin-right:4rem;
   margin-bottom:4rem;
   background-color: pink;
   padding: 24px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  border-radius: 24px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 const Wrapper = styled.div`
@@ -18,13 +20,13 @@ const Wrapper = styled.div`
   padding: 3px 16px 10px 5px;
   box-sizing: border-box;
   align-items:center;
-  justify-content:left;
+  justify-content:center;
 `;
 
 const Item = styled.div`
   display: flex;
   align-items: center;
-  height: 48px;
+  height: 40px;
   position: relative; 
 `;
 
@@ -147,7 +149,7 @@ const Question = forwardRef(
                   <Text>{answer01}</Text>
                 </Item>
               
-
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
               {/* <div className="form-check form-check-inline">
                 <label className="form-check-label" style={{fontFamily:'Binggrae-Bold'}}>

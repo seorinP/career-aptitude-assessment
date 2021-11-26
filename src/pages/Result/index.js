@@ -153,7 +153,7 @@ const Result = () => {
   }, [fetchJobs]);
 
   return (
-    <Wrapper hue={340}>
+    <Wrapper hue={200}>
       <Header />
     <div className="container">
       <div className="text-center mb-4">

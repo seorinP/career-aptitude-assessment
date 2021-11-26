@@ -52,6 +52,10 @@
   font-style: normal;
 }
 
+a {
+  text-align: center;
+  justify-items: center;
+}
 
 a:hover {
   text-decoration: none;

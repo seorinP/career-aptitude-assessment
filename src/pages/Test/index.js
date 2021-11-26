@@ -29,6 +29,11 @@ const Gradient = styled.div`
   width: 100%;
 `;
 
+const Boundary = styled.div `
+  margin: 4.0rem 4.8rem;
+  height: 100%;
+`
+
 
 const Wrapper = styled.div`
   background: linear-gradient(
@@ -197,7 +202,7 @@ const Test = () => {
 
   return (
     <>
-    <Wrapper hue={340}>
+    <Wrapper hue={200}>
     {/* <div className="container"> */}
       <Header />
       
@@ -223,15 +228,17 @@ const Test = () => {
           />
         )}
 
+        <Boundary>
         {/* 본격적으로 검사 시작 */}
         {currentPageIndex > 1 && (
           <div className="mb-4">
             <ProgressBar text={'검사 진행'} percentage={progressPercentage} />
           </div>
         )}
+        
 
         <QuestionList questions={questions} visibleQuestions={visibleQuestions} ref={register} />
-
+        
         {/* 아래 버튼들 */}
         {currentPageIndex > 1 && (
         <>
@@ -250,10 +257,10 @@ const Test = () => {
           </div>
         </>
         )}
-
-        <FooterComponent />
-
+        </Boundary>
+        
       </form>
+      <FooterComponent />
     {/* </div> */}
     </Wrapper>
     </>

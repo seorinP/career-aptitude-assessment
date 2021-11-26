@@ -23,6 +23,7 @@ const Button = styled.button`
     font-weight: 400;
     font-size:1.125rem;
     text-align:center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     // border:${props => props.type === 'previous' ? '3px solid #00462A' : '3px solid lightgray'};
 
     /* :hover{
