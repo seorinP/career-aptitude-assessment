@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const Text = styled.div`
   font-family:'Binggrae-Bold';
   font-size:1.5rem;
+  margin-left: 2rem,
 `
 
 const ProgressBar = ({ text, percentage }) => {
@@ -14,6 +15,8 @@ const ProgressBar = ({ text, percentage }) => {
     width: '100%',
     backgroundColor: "#e0e0de",
     borderRadius: 50,
+    //paddingLeft: '2rem',
+    //marginRight: '10rem',
     marginBottom: '5rem'
   }
 
@@ -33,16 +36,13 @@ const ProgressBar = ({ text, percentage }) => {
 
   return (
     <>
-      <div className="row justify-content-between">
-              {/* 여긴 Logo가 든 Header를 넣자. Home으로 돌아가기 */}
-              {/* 검사 진행에 스타일 입히기 */}
-              <div className="col col-auto">
-                <Text>{text}</Text>
-              </div>
-              <div className="col col-auto">
-                <h3>{percentage}%</h3>
-              </div>
-            </div>
+      {/* <div className="row justify-content-between"> */}
+      <div className="d-flex justify-content-between">
+        {/* 여긴 Logo가 든 Header를 넣자. Home으로 돌아가기 */}
+        {/* 검사 진행에 스타일 입히기 */}
+        <Text>{text}</Text>
+        <h3>{percentage}%</h3>
+      </div>
 
       <div style={containerStyles}>
         <div

@@ -21,7 +21,7 @@ const Button = styled.button`
     display:flex;
     justify-content:center;
     align-items:center;
-    font-family:${props => props.type === 'previous' ? 'Jalnan' : 'Spoqa-Han-Sans'};
+    font-family:'Binggrae-Bold';
     font-weight: 400;
     font-size:1.125rem;
     text-align:center;
