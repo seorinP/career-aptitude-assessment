@@ -1,4 +1,33 @@
 import { forwardRef } from "react";
+import styled from "styled-components";
+
+const QuestionText = styled.div`
+    font-family:'Binggrae';
+    text-align: center;
+    font-size: 1.3rem;
+    color: ##6B3FA0;
+    margin-bottom: 1.2rem;
+`
+const Container = styled.div`
+  margin-left:2rem;
+  margin-right:2rem;
+  background-color: pink;
+  padding: 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+
+const Content = styled.div`
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+`;
 
 const Question = forwardRef(
   (
@@ -24,9 +53,10 @@ const Question = forwardRef(
         key={`question${qitemNo}`}
       >
 
-        <div className="card bg-light py-4">
+        {/* <div className="card bg-light py-4"> */}
+        <Container>
           <div className="card-body text-center">
-            <div>{question}</div>
+            <QuestionText>{question}</QuestionText>
             <div>
 
               <div className="form-check form-check-inline">
@@ -69,9 +99,11 @@ const Question = forwardRef(
               </div>
 
               
+              
             </div>
           </div>
-        </div>
+        {/* </div> */}
+        </Container>
       </div>
     );
   }

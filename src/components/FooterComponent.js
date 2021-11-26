@@ -4,9 +4,9 @@ import Whale from '../assets/common/whale.png';
 
 const Footer = styled.div`
     font-family:'Binggrae-Bold';
-    font-size:1.4rem;
+    font-size:1.0rem;
     font-weight:400;
-    text-align:center;
+    text-align:left;
     margin-top:8.9rem;
     color:#A7A7A7;
 `
@@ -17,7 +17,7 @@ const Logo = styled.img`
 
 function FooterComponent() {
     return (
-        <Footer>made by Jasmine &nbsp;<Logo src={Whale} /></Footer>
+        <Footer>@Copyright 2021. Jasmine &nbsp;<Logo src={Whale} /></Footer>
     );
 }
 

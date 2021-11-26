@@ -3,6 +3,44 @@ import { Link, useParams } from "react-router-dom";
 import api from "utils/api";
 import { genders, majorNames, educationLevelNames } from "utils/constants";
 import Chart from "./Chart";
+import Header from '../../components/HeaderComponent';
+import FooterComponent from '../../components/FooterComponent';
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  background: linear-gradient(
+    20deg,
+    hsl(${props => props.hue}, 60%, 65%),
+    hsl(${props => props.hue - 305}, 64%, 60%)
+  );
+  height: 100%;
+  width: 100%;
+  padding-top: 0px;
+`
+const Title = styled.div`
+  font-family:'Binggrae-Bold';
+  font-size:2.5rem;
+  text-align:center;
+  color:#6B3FA0;
+  margin-bottom:5.4rem;
+`
+const Description = styled.div`
+  font-family:'Binggrae';
+  font-size:1.0rem;
+  font-weight:400;
+  text-align:left;
+  color:#6B3FA0;
+  margin-bottom:4rem;
+`
+const Label = styled.div`
+    font-family:'Binggrae-Bold';
+    text-align: left;
+    font-size: 1.5rem;
+    color: ##6B3FA0;
+    margin-top: 1.2rem;
+    margin-bottom: 1.0rem;
+`
+
 
 const Result = () => {
   const { seq: reportSeq } = useParams();
@@ -115,19 +153,22 @@ const Result = () => {
   }, [fetchJobs]);
 
   return (
+    <Wrapper hue={340}>
+      <Header />
     <div className="container">
       <div className="text-center mb-4">
-        <h2 className="border-bottom d-inline-block">직업가치관검사 결과표</h2>
+        <Title>" 직업가치관검사 결과표 "</Title>
       </div>
-      <div className="mb-4">
-        직업가치관이란 직업을 선택할 때 영향을 끼치는 자신만의 믿음과
+      <Description>
+         '직업가치관' 이란 직업을 선택할 때 영향을 끼치는 자신만의 믿음과
         신념입니다. 따라서 여러분의 직업생활과 관련하여 포기하지 않는 무게중심의
         역할을 한다고 볼 수 있습니다. 직업가치관검사는 여러분이 직업을 선택할 때
         상대적으로 어떠한 가치를 중요하게 생각하는지를 알려줍니다. 또한 본인이
         가장 중요하게 생각하는 가치를 충족시켜줄 수 있는 직업에 대해 생각해 볼
         기회를 제공합니다.
-      </div>
-      <table className="table">
+      </Description>
+
+      <table className="table" style={{fontFamily:'Binggrae'}}>
         <thead>
           <tr>
             <th scope="col">이름</th>
@@ -143,20 +184,22 @@ const Result = () => {
           </tr>
         </tbody>
       </table>
+
       <br />
       <br />
+
       <div>
-        <h3>직업가치관결과</h3>
+        <Label>직업가치관결과</Label>
         <Chart data={reportScores} />
       </div>
       <br />
       <br />
       <div>
-        <h3>가치관과 관련이 높은 직업</h3>
-        <div className="bg-secondary p-2 text-center text-white">
+        <Label>가치관과 관련이 높은 직업</Label>
+        <div className="bg-secondary p-2 text-center text-white"  style={{fontFamily:'Binggrae-Bold'}}>
           <h4>종사자 평균 학력별</h4>
         </div>
-        <table className="table">
+        <table className="table" style={{fontFamily:'Binggrae-Bold'}}>
           <thead>
             <tr>
               <th scope="col" style={{ whiteSpace: "nowrap", minWidth: 120 }}>
@@ -205,10 +248,10 @@ const Result = () => {
             )}
           </thead>
         </table>
-        <div className="bg-secondary p-2 text-center text-white">
+        <div className="bg-secondary p-2 text-center text-white" style={{fontFamily:'Binggrae-Bold'}}>
           <h4>종사자 평균 전공별</h4>
         </div>
-        <table className="table">
+        <table className="table" style={{fontFamily:'Binggrae'}}>
           <thead>
             <tr>
               <th scope="col" style={{ whiteSpace: "nowrap", minWidth: 120 }}>
@@ -250,12 +293,15 @@ const Result = () => {
           </thead>
         </table>
       </div>
-      <div className="text-center">
-        <Link className="btn btn-outline-primary" to="/">
+      <div className="text-center" style={{fontFamily:'Binggrae'}}>
+        <Link className="btn btn-outline-primary" to="/" >
           다시 검사하기
         </Link>
       </div>
     </div>
+    <FooterComponent />
+    </Wrapper>
+
   );
 };
 

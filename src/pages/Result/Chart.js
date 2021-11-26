@@ -58,7 +58,7 @@ const Chart = ({ data }) => {
                 }}
               >
                 <div
-                  className="bg-primary"
+                  className="bg-info"
                   style={{
                     position: "relative",
                     width: "80%",
@@ -68,6 +68,7 @@ const Chart = ({ data }) => {
                   <div
                     className="text-secondary"
                     style={{
+                      fontFamily:'Binggrae-Bold',
                       textAlign: "center",
                       position: "absolute",
                       bottom: "100%",
@@ -80,6 +81,7 @@ const Chart = ({ data }) => {
                   <div
                     className="text-secondary"
                     style={{
+                      fontFamily:'Binggrae-Bold',
                       textAlign: "center",
                       position: "absolute",
                       top: "100%",
