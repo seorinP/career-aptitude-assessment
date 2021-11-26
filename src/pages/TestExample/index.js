@@ -24,7 +24,7 @@ function TestExample({ setSelectedValue, initialValue, disabled, pageIndex, prog
               </div>
 
               <Title>
-                직업과 관련된 두개의 가치 중에서 자기에게 더 중요한 가치에
+                직업과 관련된 두개의 가치 중에서 <br/> 자기에게 더 중요한 가치에
                 표시하세요.
               </Title>
         

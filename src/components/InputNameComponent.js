@@ -2,16 +2,23 @@ import React from "react";
 import styled from "styled-components";
 
 const InputField = styled.input`
-    width: 100%;
-    border: 1px solid #6B3FA0;
+  background-color: "#fff";
+  font-family: 'Binggrae';
+  border: #e0e0e0;
+  :focus {
+    color: #cbf;
     outline: none;
-    border-radius: 0px;
-    line-height: 2.5rem;
-    font-family: 'Binggrae';
-    font-size: 1.2rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-`
+  }
+  font-size: 1.27rem;
+  padding: 24px;
+  border-radius: 16px;
+  border-width: 1px;
+  color: #333;
+  margin: auto;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 2.3rem;
+`;
 
 const InputName = React.forwardRef((props, ref) => {
 

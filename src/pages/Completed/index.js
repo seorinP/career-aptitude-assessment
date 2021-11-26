@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import Header from '../../components/HeaderComponent';
+import FooterComponent from '../../components/FooterComponent';
 
 const Wrapper = styled.div`
   background: linear-gradient(
@@ -35,7 +37,7 @@ const Button = styled.button`
     height: 5.5rem;
     border-radius: 1.5rem;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: '#8B748D';
+    background-color: orange;
     cursor:pointer;
     display: inline-flex;
     font-family:'Binggrae-Bold';
@@ -62,6 +64,7 @@ const Completed = () => {
 
   return (
     <Wrapper hue={340}>
+      <Header />
         <Title>검사가 완료되었습니다.</Title>
         <Description>
           검사결과는 여러분이 직업을 선택할 때 상대적으로 어떠한 가치를 중요하게
@@ -71,7 +74,9 @@ const Completed = () => {
         </Description>
 
         <Link to={`/result/${reportSeq}`}>
+          <Button>
             결과 보기
+          </Button>
         </Link>
         
         <br />
@@ -88,7 +93,7 @@ const Completed = () => {
         <br />
         <br />
         <br />
-        <br />
+        <FooterComponent />
     </Wrapper>
   );
 };

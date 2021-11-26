@@ -22,7 +22,7 @@ const Container = styled.div`
 
 const Intro = styled.div`
     font-family:'Binggrae';
-    font-size:1.4rem;
+    font-size:1.35rem;
     font-weight:400;
     text-align:center;
     color:#FFFFFF;
@@ -31,7 +31,7 @@ const Intro = styled.div`
 
 const Title = styled.div`
     font-family:'Binggrae-Bold';
-    font-size:2.5rem;
+    font-size:2.7rem;
     text-align:center;
     color:#6B3FA0;
     margin-top:1.9rem;
@@ -46,10 +46,11 @@ const FormContainer = styled.div`
 const Label = styled.div`
     font-family:'Binggrae-Bold';
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: ##6B3FA0;
     margin-top: 1.2rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.3rem;
+    margin-left: 0.3rem;
 `
 
 const Landing = React.forwardRef((props, ref) => { 
