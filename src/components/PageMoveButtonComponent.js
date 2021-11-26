@@ -11,8 +11,6 @@ const Button = styled.button`
             : props.type === 'previous' ? '#00462A'
                 : 'pink'};
     cursor:pointer;
-    margin-left : ${props =>
-        props.type === 'previous' ? '0rem' : '33rem'};
     display: inline-flex;
 
     color:${props =>

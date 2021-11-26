@@ -211,17 +211,17 @@ const Test = () => {
           disabled={isNextDisabled} 
           onClick={handleNextClick} />
 
-        
-        <TestExample 
-          setSelectedValue={setSelectedSampleValue}
-          initialValue={selectedSampleValue}
-          disabled={!selectedSampleValue}
-          pageIndex={currentPageIndex} 
-          progressPercentage={progressPercentage}
-          onClick1={handlePrevClick}
-          onClick2={handleNextClick}
-        />
-        
+        {currentPageIndex === 1 && (
+          <TestExample 
+            setSelectedValue={setSelectedSampleValue}
+            initialValue={selectedSampleValue}
+            disabled={!selectedSampleValue}
+            pageIndex={currentPageIndex} 
+            progressPercentage={progressPercentage}
+            onClick1={handlePrevClick}
+            onClick2={handleNextClick}
+          />
+        )}
 
         {/* 본격적으로 검사 시작 */}
         {currentPageIndex > 1 && (
