@@ -2,9 +2,9 @@ import { forwardRef, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin-left:4rem;
-  margin-right:4rem;
-  margin-bottom:4rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  margin-bottom: 4rem;
   background-color: white;
   // background-image:linear-gradient(45deg, #ee9ca7 0%, #ffdde1 100%);
   padding: 24px;
@@ -20,21 +20,21 @@ const Wrapper = styled.div`
   width: 100%;
   padding: 3px 16px 10px 5px;
   box-sizing: border-box;
-  align-items:center;
-  justify-content:center;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Item = styled.div`
   display: flex;
   align-items: center;
   height: 40px;
-  position: relative; 
+  position: relative;
 `;
 
 const Text = styled.div`
-  font-family:'Binggrae';
-  font-size:1.27rem;
-`
+  font-family: "Binggrae";
+  font-size: 1.27rem;
+`;
 
 const RadioButtonLabel = styled.label`
   position: absolute;
@@ -103,21 +103,18 @@ const Question = forwardRef(
     },
     ref
   ) => {
-    
-  const [select, setSelect] = useState('');
+    const [select, setSelect] = useState("");
 
-  const handleSelectChange = (event) => {
-    const value = event.target.value;
-    setSelect(value);
-  };
+    const handleSelectChange = (event) => {
+      const value = event.target.value;
+      setSelect(value);
+    };
 
-  const handleAnswer = (qitemNo, answerScore) => {
-    if (typeof handleChange === "function") {
-      handleChange(qitemNo, answerScore);
-    }
-  };
-
-  
+    const handleAnswer = (qitemNo, answerScore) => {
+      if (typeof handleChange === "function") {
+        handleChange(qitemNo, answerScore);
+      }
+    };
 
     return (
       <div
@@ -127,38 +124,34 @@ const Question = forwardRef(
         }}
         key={`question${qitemNo}`}
       >
-      
         {/* <div className="card bg-light py-4"> */}
-        
+
         <Container>
           <div className="card-body text-center">
             {/* {question} */}
 
             <Wrapper className="form-check form-check-inline">
-                <Item className='form-check-label'>
-                  <RadioButton
-                    ref={ref}
-                    type="radio"
-                    name={`answers[${qitemNo - 1}]`}
-                    className="form-check-input"
-                    value={answerScore01}
+              <Item className="form-check-label">
+                <RadioButton
+                  ref={ref}
+                  type="radio"
+                  name={`answers[${qitemNo - 1}]`}
+                  className="form-check-input"
+                  value={answerScore01}
                   // 이건 추가됨
-                    checked={select === answerScore01}
+                  checked={select === answerScore01}
                   // 여기가 기존하고 변경 되었음
                   //  onChange={handleAnswer(qitemNo, answerScore01), event=>handleSelectChange(event)}
-                    onChange={(event) => {
-                      handleAnswer(qitemNo, answerScore02)
-                      handleSelectChange(event)
-                    }}
-                  
-                    defaultChecked={answerScore01 === initialValue}
-                  />
-                  <RadioButtonLabel /> &nbsp;&nbsp;
-                  <Text>{answer01}</Text>
-                </Item>
-              
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
+                  onChange={(event) => {
+                    handleAnswer(qitemNo, answerScore02);
+                    handleSelectChange(event);
+                  }}
+                  defaultChecked={answerScore01 === initialValue}
+                />
+                <RadioButtonLabel /> &nbsp;&nbsp;
+                <Text>{answer01}</Text>
+              </Item>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               {/* <div className="form-check form-check-inline">
                 <label className="form-check-label" style={{fontFamily:'Binggrae-Bold'}}>
                   <input
@@ -177,29 +170,27 @@ const Question = forwardRef(
                   {answer01}
                 </label>
               </div> */}
-
-
               {/* <Wrapper className="form-check form-check-inline"> */}
-                <Item className='form-check-label'>
-                  <RadioButton
-                    ref={ref}
-                    type="radio"
-                    name={`answers[${qitemNo - 1}]`}
-                    className="form-check-input"
-                    value={answerScore02}
-                    checked={select === answerScore02}
-                    onChange={handleAnswer(qitemNo, answerScore02), event=>handleSelectChange(event)}
-                    defaultChecked={answerScore02 === initialValue}
-                  />
-                  <RadioButtonLabel /> &nbsp;&nbsp;
-                  <Text>{answer02}</Text>
-                </Item>
-              </Wrapper>
+              <Item className="form-check-label">
+                <RadioButton
+                  ref={ref}
+                  type="radio"
+                  name={`answers[${qitemNo - 1}]`}
+                  className="form-check-input"
+                  value={answerScore02}
+                  checked={select === answerScore02}
+                  onChange={(event) => {
+                    handleAnswer(qitemNo, answerScore02);
+                    handleSelectChange(event);
+                  }}
+                  defaultChecked={answerScore02 === initialValue}
+                />
+                <RadioButtonLabel /> &nbsp;&nbsp;
+                <Text>{answer02}</Text>
+              </Item>
+            </Wrapper>
 
-
-
-
-              {/* <div className="form-check form-check-inline">
+            {/* <div className="form-check form-check-inline">
                 <label className="form-check-label" style={{fontFamily:'Binggrae-Bold'}}>
                   <input
                     ref={ref}
@@ -217,12 +208,9 @@ const Question = forwardRef(
                   {answer02}
                 </label>
               </div> */}
-
-              
-              
-            </div>
+          </div>
           {/* </div> */}
-        {/* </div> */}
+          {/* </div> */}
         </Container>
       </div>
     );
