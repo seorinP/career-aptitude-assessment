@@ -29,8 +29,9 @@ function TestExample({ setSelectedValue, initialValue, disabled, pageIndex, prog
               </div>
 
               <Title>
-                직업과 관련된 두 개의 가치 중에서 <br/> 자신에게 더 중요한 가치를
-                선택하세요.
+                "&nbsp;&nbsp;&nbsp;직업과 관련된 두 개의 가치 중에서&nbsp;&nbsp;&nbsp;" 
+                <br/> 
+                자신에게 더 중요한 가치를 선택하세요.
               </Title>
         
               <Question
@@ -42,10 +43,11 @@ function TestExample({ setSelectedValue, initialValue, disabled, pageIndex, prog
                 answerScore02={-2}
                 initialValue={initialValue}
                 onChange={(qitemNo, answerScore) => {
-                    setSelectedValue(answerScore);
+                  setSelectedValue(answerScore);
                 }}
               />
 
+              
   
               
               <div className="button d-flex justify-content-between">

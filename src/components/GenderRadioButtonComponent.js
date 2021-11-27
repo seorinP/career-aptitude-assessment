@@ -49,7 +49,7 @@ const RadioButton = styled.input`
       border-radius: 50%;
       width: 12px;
       height: 12px;
-      margin: 6px;
+      margin: 5px;
       background: #eeeeee;
     }
   }

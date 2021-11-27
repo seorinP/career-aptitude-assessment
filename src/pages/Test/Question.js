@@ -63,7 +63,7 @@ const RadioButton = styled.input`
       border-radius: 50%;
       width: 12px;
       height: 12px;
-      margin: 6px;
+      margin: 5px;
       background: #eeeeee;
     }
   }
@@ -142,22 +142,27 @@ const Question = forwardRef(
                     name={`answers[${qitemNo - 1}]`}
                     className="form-check-input"
                     value={answerScore01}
-                  // 이건 추가됨
-                    checked={select === answerScore01}
+                  // 이건 추가됨 원래 ===인데 ==로 해야 됨 왜지..왜...
+                    checked={select == answerScore01}
                   // 여기가 기존하고 변경 되었음
                   //  onChange={handleAnswer(qitemNo, answerScore01), event=>handleSelectChange(event)}
-                    onChange={(event) => {
-                      handleAnswer(qitemNo, answerScore02)
-                      handleSelectChange(event)
-                    }}
-                  
+                  onChange={(event) => {
+                    handleAnswer(qitemNo, answerScore01);
+                    handleSelectChange(event);
+                  }}
                     defaultChecked={answerScore01 === initialValue}
                   />
                   <RadioButtonLabel /> &nbsp;&nbsp;
                   <Text>{answer01}</Text>
                 </Item>
               
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {console.log(`select : ${select}`)}
+              {console.log(`answerScore01 : ${answerScore01}`)}
+              {console.log(`answerScore02 : ${answerScore02}`)}
+              {console.log(`checked answerScore01 : ${select === answerScore01}`)}
+              {console.log(`checked answerScore02 : ${select === answerScore02}`)}
+              
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
               {/* <div className="form-check form-check-inline">
                 <label className="form-check-label" style={{fontFamily:'Binggrae-Bold'}}>
@@ -187,11 +192,11 @@ const Question = forwardRef(
                     name={`answers[${qitemNo - 1}]`}
                     className="form-check-input"
                     value={answerScore02}
-                    checked={select === answerScore02}
+                    checked={select == answerScore02}
                     // onChange={handleAnswer(qitemNo, answerScore02), event=>handleSelectChange(event)}
                     onChange={(event) => {
-                      handleAnswer(qitemNo, answerScore02)
-                      handleSelectChange(event)
+                      handleAnswer(qitemNo, answerScore02);
+                      handleSelectChange(event);
                     }}
                     defaultChecked={answerScore02 === initialValue}
                   />
@@ -222,7 +227,7 @@ const Question = forwardRef(
                 </label>
               </div> */}
 
-              
+            
               
             </div>
           {/* </div> */}

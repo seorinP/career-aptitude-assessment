@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Whale from '../assets/common/whale.png';
+
 
 const Footer = styled.div`
     font-family:'Binggrae';
@@ -12,13 +12,9 @@ const Footer = styled.div`
     color:#FFFFFF;
 `
 
-const Logo = styled.img`
-    width: 1.2rem;
-`
-
 function FooterComponent() {
     return (
-        <Footer>@Copyright 2021. SeorinPark All rights reserved. &nbsp;<Logo src={Whale} /></Footer>
+        <Footer>@Copyright 2021. SeorinPark All rights reserved.</Footer>
     );
 }
 

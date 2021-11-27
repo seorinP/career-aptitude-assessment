@@ -217,7 +217,7 @@ const Test = () => {
             initialValue={selectedSampleValue} // 지금은 null값이 들어있다.
             disabled={!selectedSampleValue} // disabled true로 되어있나?
             pageIndex={currentPageIndex} 
-            progressPercentage={progressPercentage}
+            progressPercentage={0}
             onClick1={handlePrevClick}
             onClick2={handleNextClick}
           />
