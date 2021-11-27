@@ -19,26 +19,26 @@ import PageMoveButton from '../../components/PageMoveButtonComponent';
 yup.setLocale(ko);
 
 
-const Gradient = styled.div`
-  background: linear-gradient(
-    20deg,
-    hsl(${props => props.hue}, 60%, 65%),
-    hsl(${props => props.hue - 305}, 64%, 60%)
-  );
+const Boundary = styled.div `
+  margin: 4.0rem 4.8rem;
   height: 100%;
-  width: 100%;
-`;
+`
 
 
 const Wrapper = styled.div`
-  background: linear-gradient(
-    20deg,
-    hsl(${props => props.hue}, 60%, 65%),
-    hsl(${props => props.hue - 305}, 64%, 60%)
-  );
+  background: linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%);
+  
   height: 100%;
   width: 100%;
   padding-top: 0px;
+`
+const Title = styled.div`
+    font-family:'Binggrae-Bold';
+    font-size:1.5rem;
+    text-shadow: 1px 2px 1.5px rgba(0, 0, 0, 0.25);
+    text-align:center;
+    color:#FFFFFF;
+    margin-bottom:3rem;
 `
 
 const Test = () => {
@@ -197,7 +197,7 @@ const Test = () => {
 
   return (
     <>
-    <Wrapper hue={340}>
+    <Wrapper>
     {/* <div className="container"> */}
       <Header />
       
@@ -214,8 +214,8 @@ const Test = () => {
         {currentPageIndex === 1 && (
           <TestExample 
             setSelectedValue={setSelectedSampleValue}
-            initialValue={selectedSampleValue}
-            disabled={!selectedSampleValue}
+            initialValue={selectedSampleValue} // 지금은 null값이 들어있다.
+            disabled={!selectedSampleValue} // disabled true로 되어있나?
             pageIndex={currentPageIndex} 
             progressPercentage={progressPercentage}
             onClick1={handlePrevClick}
@@ -223,15 +223,24 @@ const Test = () => {
           />
         )}
 
+        <Boundary>
         {/* 본격적으로 검사 시작 */}
         {currentPageIndex > 1 && (
+          <>
           <div className="mb-4">
             <ProgressBar text={'검사 진행'} percentage={progressPercentage} />
           </div>
+
+          <Title>
+          "  다음 선택지의 직업과 관련된 두 개의 가치 중에서  " <br/> 자신에게 더 중요한 가치를
+          선택하세요.
+        </Title>
+        </>
         )}
+        
 
         <QuestionList questions={questions} visibleQuestions={visibleQuestions} ref={register} />
-
+        
         {/* 아래 버튼들 */}
         {currentPageIndex > 1 && (
         <>
@@ -250,10 +259,10 @@ const Test = () => {
           </div>
         </>
         )}
-
-        <FooterComponent />
-
+        </Boundary>
+        
       </form>
+      <FooterComponent />
     {/* </div> */}
     </Wrapper>
     </>

@@ -22,18 +22,20 @@ const Container = styled.div`
 
 const Intro = styled.div`
     font-family:'Binggrae';
-    font-size:1.4rem;
+    font-size:1.35rem;
     font-weight:400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
     text-align:center;
-    color:#FFFFFF;
+    color:white;
     margin-bottom:4rem;
 `
 
 const Title = styled.div`
     font-family:'Binggrae-Bold';
-    font-size:2.5rem;
+    font-size:2.7rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
     text-align:center;
-    color:#6B3FA0;
+    color:white;
     margin-top:1.9rem;
     margin-bottom:6.4rem;
 `
@@ -46,10 +48,11 @@ const FormContainer = styled.div`
 const Label = styled.div`
     font-family:'Binggrae-Bold';
     text-align: left;
-    font-size: 1rem;
-    color: ##6B3FA0;
+    font-size: 1.05rem;
+    color: #0F6171;
     margin-top: 1.2rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.3rem;
+    margin-left: 0.3rem;
 `
 
 const Landing = React.forwardRef((props, ref) => { 
@@ -60,10 +63,10 @@ const Landing = React.forwardRef((props, ref) => {
 
         <Wrapper pageIndex={props.pageIndex}>
             <Container>
-                <Intro>내 가치관에 맞는 찰떡 직업은 무엇일까?<br /> 내게 딱 맞는 직업 찾기 테스트</Intro>
+                <Intro>내 가치관에 맞는 찰떡 직업은 무엇일까?<br /> 내게 딱 맞는 직업 찾기 테스트!</Intro>
 
                 {/* 제목 작성 */}
-                <Title>Find My Fit Job</Title>
+                <Title>" 찰떡직업 찾기 "</Title>
 
                 {/* 이름 작성 */}
                 <FormContainer>

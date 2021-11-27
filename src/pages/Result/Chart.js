@@ -26,6 +26,8 @@ const Chart = ({ data }) => {
   return (
     <div
       style={{
+        border: 'solid white 5px',
+        backgroundImage:'linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%)',
         position: "relative",
         width: "100%",
         height: "auto",
@@ -55,20 +57,22 @@ const Chart = ({ data }) => {
                   alignItems: "flex-end",
                   justifyContent: "center",
                   height: "100%",
+                  color: 'pink'
                 }}
               >
                 <div
-                  className="bg-info"
+                  // className="bg-gradient-warning"
                   style={{
+                    backgroundColor: 'white',
                     position: "relative",
-                    width: "80%",
+                    width: "55%",
                     height: `${(value?.score / maxScore) * 80}%`,
                   }}
                 >
                   <div
-                    className="text-secondary"
                     style={{
                       fontFamily:'Binggrae-Bold',
+                      color: 'black',
                       textAlign: "center",
                       position: "absolute",
                       bottom: "100%",
@@ -79,8 +83,8 @@ const Chart = ({ data }) => {
                   </div>
 
                   <div
-                    className="text-secondary"
                     style={{
+                      color: 'black',
                       fontFamily:'Binggrae-Bold',
                       textAlign: "center",
                       position: "absolute",

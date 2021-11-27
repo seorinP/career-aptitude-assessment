@@ -76,9 +76,9 @@ const RadioButton = styled.input`
 
 
 
-const GenderRadioButton = React.forwardRef((props, ref) => {
+const AnswerRadioButton = React.forwardRef((props, ref) => {
   const [select, setSelect] = useState('');
-
+  const num = props.qitemNo;
   const handleSelectChange = (event) => {
     const value = event.target.value;
     setSelect(value);
@@ -90,9 +90,9 @@ const GenderRadioButton = React.forwardRef((props, ref) => {
       <Item className='form-check-label'>
         <RadioButton
           type='radio'
-          name='gender'
+          name={props.answers[num-1]}
           className="form-check-input"
-          value='100323'
+          value={props.answerScore01}
           ref={ ref }
           checked={select === '100323'}
           onChange={(event) => handleSelectChange(event)}
@@ -104,7 +104,7 @@ const GenderRadioButton = React.forwardRef((props, ref) => {
 
      
 
-      <Item className='form-check-label'>
+      <Item className='form-cRaheck-label'>
         <RadioButton
           type='radio'
           name='gender'
@@ -122,4 +122,4 @@ const GenderRadioButton = React.forwardRef((props, ref) => {
 });
 
 
-export default GenderRadioButton;
+export default AnswerRadioButton;
