@@ -6,16 +6,11 @@ const Button = styled.button`
     height: 3rem;
 
     border-radius: 1.5rem;
-    background-color: ${props =>
-        props.type === 'previous' ? '#00462A'
-            : props.type === 'previous' ? '#00462A'
-                : 'pink'};
+    background-image:linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
     cursor:pointer;
     display: inline-flex;
 
-    color:${props =>
-        props.type === 'previous' ? 'white'
-            : 'black'};
+    color:white;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -26,11 +21,16 @@ const Button = styled.button`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     // border:${props => props.type === 'previous' ? '3px solid #00462A' : '3px solid lightgray'};
 
-    /* :hover{
-        background-color: ${props => '#previous'};
-        border:3px solid #00462A;
+    :hover{
+        border:3px solid white;
         color:white;
-    } */
+    } 
+
+    // &:disabled:hover {
+    //     background-color: white;
+    //     color: black;
+    //     cursor: not-allowed;
+    // }
 
 `
 

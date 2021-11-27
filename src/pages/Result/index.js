@@ -8,11 +8,7 @@ import FooterComponent from '../../components/FooterComponent';
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  background: linear-gradient(
-    20deg,
-    hsl(${props => props.hue}, 60%, 65%),
-    hsl(${props => props.hue - 305}, 64%, 60%)
-  );
+  background:linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%);
   height: 100%;
   width: 100%;
   padding-top: 0px;
@@ -21,24 +17,51 @@ const Title = styled.div`
   font-family:'Binggrae-Bold';
   font-size:2.5rem;
   text-align:center;
-  color:#6B3FA0;
-  margin-bottom:5.4rem;
+  color:#FFFFFF;
+  margin-bottom:5.0rem;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
 `
 const Description = styled.div`
   font-family:'Binggrae';
   font-size:1.0rem;
   font-weight:400;
   text-align:left;
-  color:#6B3FA0;
+  text-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.25);
+  color:white;
   margin-bottom:4rem;
 `
 const Label = styled.div`
     font-family:'Binggrae-Bold';
+    text-shadow: 0.2px 1.5px 1.5px rgba(0, 0, 0, 0.25);
     text-align: left;
     font-size: 1.5rem;
     color: ##6B3FA0;
     margin-top: 1.2rem;
-    margin-bottom: 1.0rem;
+    margin-bottom: 1.5rem;
+`
+
+const Button = styled.button`
+    width: 12.2rem;
+    height: 4.8rem;
+    border-radius: 1.5rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+    cursor:pointer;
+    display: flex;
+    font-family:'Binggrae-Bold';
+    color:white;
+    justify-content:center;
+    align-items:center;
+    font-weight: 400;
+    font-size:1.35rem;
+    text-align:center;
+    border:none;
+    margin: 0 auto;
+
+    :hover{
+      border:5px solid white;
+      color:white;
+  } 
 `
 
 
@@ -153,15 +176,15 @@ const Result = () => {
   }, [fetchJobs]);
 
   return (
-    <Wrapper hue={200}>
+    <Wrapper>
       <Header />
     <div className="container">
       <div className="text-center mb-4">
         <Title>" 직업가치관검사 결과표 "</Title>
       </div>
       <Description>
-         '직업가치관' 이란 직업을 선택할 때 영향을 끼치는 자신만의 믿음과
-        신념입니다. 따라서 여러분의 직업생활과 관련하여 포기하지 않는 무게중심의
+        &nbsp;'직업가치관' 이란 직업을 선택할 때 영향을 끼치는 자신만의 믿음과 신념입니다.
+        따라서 여러분의 직업생활과 관련하여 포기하지 않는 무게중심의
         역할을 한다고 볼 수 있습니다. 직업가치관검사는 여러분이 직업을 선택할 때
         상대적으로 어떠한 가치를 중요하게 생각하는지를 알려줍니다. 또한 본인이
         가장 중요하게 생각하는 가치를 충족시켜줄 수 있는 직업에 대해 생각해 볼
@@ -192,11 +215,13 @@ const Result = () => {
         <Label>직업가치관결과</Label>
         <Chart data={reportScores} />
       </div>
-      <br />
-      <br />
+
+      <br /><br /><br />
+      
       <div>
         <Label>가치관과 관련이 높은 직업</Label>
-        <div className="bg-secondary p-2 text-center text-white"  style={{fontFamily:'Binggrae-Bold'}}>
+        <br />
+        <div className="p-2 text-center text-black"  style={{backgroundColor:'white', fontFamily:'Binggrae-Bold'}}>
           <h4>종사자 평균 학력별</h4>
         </div>
         <table className="table" style={{fontFamily:'Binggrae-Bold'}}>
@@ -248,7 +273,10 @@ const Result = () => {
             )}
           </thead>
         </table>
-        <div className="bg-secondary p-2 text-center text-white" style={{fontFamily:'Binggrae-Bold'}}>
+
+        <br /><br />
+
+        <div className="p-2 text-center text-black" style={{backgroundColor:'white', fontFamily:'Binggrae-Bold'}}>
           <h4>종사자 평균 전공별</h4>
         </div>
         <table className="table" style={{fontFamily:'Binggrae'}}>
@@ -293,11 +321,17 @@ const Result = () => {
           </thead>
         </table>
       </div>
-      <div className="text-center" style={{fontFamily:'Binggrae'}}>
-        <Link className="btn btn-outline-primary" to="/" >
+
+      <br /><br /><br />
+
+      {/* <div className="text-center" style={{fontFamily:'Binggrae'}}> */}
+      <Button>
+        <Link to="/" style={{color:'white'}}>
           다시 검사하기
         </Link>
-      </div>
+      </Button>
+      {/* </div> */}
+
     </div>
     <FooterComponent />
     </Wrapper>

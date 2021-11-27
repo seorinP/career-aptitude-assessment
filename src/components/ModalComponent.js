@@ -39,13 +39,13 @@ const Label = styled.div`
 const Button = styled.button `
 font-family:'Binggrae-Bold';
     color: white;
-    background: linear-gradient(225deg, #00DBDE 0%, #FC00FF 100%);
+    background: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
     font-size: 1rem;
     padding: 0.75rem 2rem;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     boder: none;
-    border-radius: 4px;
+    border-radius: 10px;
     margin: 0.5rem;
     font-weight: 700;
     border-bottom: solid 2px rgba(0, 0, 0, 0.2);
@@ -72,14 +72,14 @@ const Modal = ({name, gender, type, onClick, modalClose}) => {
         <Wrapper onClick={onCloseModal}>
             <Container>
                 <Label>
-                    이름이 {name}이고 성별이 {gender=='100323' ? "남자" : "여자"}가 맞으십니까?
+                    이름이 '{name}'이고 <br /> 성별이 '{gender=='100323' ? "남자" : "여자"}'가 맞으십니까?
                 </Label>
                 <Button 
                     type={type}
                     onClick={onClick}
                     modalClose={modalClose}
                 > 
-                    진짜 테스트 시작!
+                    네 맞아요!
                 </Button>
             </Container>
         </Wrapper>

@@ -7,7 +7,7 @@ const HeaderContainer = styled.div`
     font-size:1.0rem;
     font-weight:400;
     text-align:left;
-    color:#A7A7A7;
+    color:#FFFFFF;
     margin-left: 1.3rem;
     margin-bottom: 3.6rem;
 `

@@ -13,8 +13,9 @@ const Boundary = styled.div `
 const Title = styled.div`
     font-family:'Binggrae-Bold';
     font-size:1.5rem;
+    text-shadow: 1px 2px 1.5px rgba(0, 0, 0, 0.25);
     text-align:center;
-    color:#6B3FA0;
+    color:#FFFFFF;
     margin-top:1.9rem;
     margin-bottom:6.4rem;
 `
@@ -28,8 +29,8 @@ function TestExample({ setSelectedValue, initialValue, disabled, pageIndex, prog
               </div>
 
               <Title>
-                직업과 관련된 두 개의 가치 중에서 <br/> 자기에게 더 중요한 가치에
-                표시하세요.
+                직업과 관련된 두 개의 가치 중에서 <br/> 자신에게 더 중요한 가치를
+                선택하세요.
               </Title>
         
               <Question

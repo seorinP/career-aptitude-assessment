@@ -5,7 +5,8 @@ const Container = styled.div`
   margin-left:4rem;
   margin-right:4rem;
   margin-bottom:4rem;
-  background-color: pink;
+  background-color: white;
+  // background-image:linear-gradient(45deg, #ee9ca7 0%, #ffdde1 100%);
   padding: 24px;
   display: flex;
   justify-content: flex-start;
@@ -110,7 +111,7 @@ const Question = forwardRef(
     setSelect(value);
   };
 
-  const handleAnswer = (answerScore) => {
+  const handleAnswer = (qitemNo, answerScore) => {
     if (typeof handleChange === "function") {
       handleChange(qitemNo, answerScore);
     }
@@ -141,8 +142,10 @@ const Question = forwardRef(
                     name={`answers[${qitemNo - 1}]`}
                     className="form-check-input"
                     value={answerScore01}
+                  // 이건 추가됨
                     checked={select === answerScore01}
-                    onChange={handleAnswer(answerScore01), event=>handleSelectChange(event)}
+                  // 여기가 기존하고 변경 되었음
+                    onChange={handleAnswer(qitemNo, answerScore01), event=>handleSelectChange(event)}
                     defaultChecked={answerScore01 === initialValue}
                   />
                   <RadioButtonLabel /> &nbsp;&nbsp;
@@ -180,7 +183,7 @@ const Question = forwardRef(
                     className="form-check-input"
                     value={answerScore02}
                     checked={select === answerScore02}
-                    onChange={handleAnswer(answerScore02), event=>handleSelectChange(event)}
+                    onChange={handleAnswer(qitemNo, answerScore02), event=>handleSelectChange(event)}
                     defaultChecked={answerScore02 === initialValue}
                   />
                   <RadioButtonLabel /> &nbsp;&nbsp;

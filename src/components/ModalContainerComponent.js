@@ -11,7 +11,7 @@ const Button = styled.button`
     height: 7rem;
     border-radius: 1.5rem;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: ${props => props.type === 'button' ? '#8B748D' : props.theme.white};
+    background: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
     cursor:pointer;
     margin : 1.5rem;
     display: inline-flex;
@@ -26,8 +26,8 @@ const Button = styled.button`
     border:none;
 
     &:disabled {
-        background: white;
-        color: orange;
+        background: linear-gradient(to right, #f8e6cb 0%, white 100%);
+        color: #FFFFFF;
         cursor: not-allowed;
     }
 `
@@ -41,7 +41,7 @@ function ModalContainer({ name, gender, disabled, type, onClick }) {
 
     return (
         <>
-        <Button type={type} disabled={disabled} onClick={modalClose}>Click!</Button>
+        <Button type={type} disabled={disabled} onClick={modalClose}>내 찰떡 직업 알아보기</Button>
         { modalOpen && 
             <Modal 
                 name={name}
