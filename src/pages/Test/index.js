@@ -35,9 +35,9 @@ const Wrapper = styled.div`
 const Title = styled.div`
     font-family:'Binggrae-Bold';
     font-size:1.5rem;
-    text-shadow: 1px 2px 1.5px rgba(0, 0, 0, 0.25);
+    text-shadow: -2.5px 0 white, 0 2.5px white, 2.5px 0 white, 0 -2.5px white;
     text-align:center;
-    color:#FFFFFF;
+    color:#ed6ea0;
     margin-bottom:3rem;
 `
 
@@ -217,7 +217,7 @@ const Test = () => {
             initialValue={selectedSampleValue} // 지금은 null값이 들어있다.
             disabled={!selectedSampleValue} // disabled true로 되어있나?
             pageIndex={currentPageIndex} 
-            progressPercentage={progressPercentage}
+            progressPercentage={0}
             onClick1={handlePrevClick}
             onClick2={handleNextClick}
           />

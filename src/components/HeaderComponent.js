@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import LogoImg from '../assets/common/logo.png';
 
@@ -17,9 +18,16 @@ const Logo = styled.img`
 `
 
 function Header() {
+    const [modalOpen, setModalOpen] = useState(false)
+    const modalClose = () => {
+        setModalOpen(!modalOpen)
+    }
+
     return (
         <HeaderContainer>
-            <Logo src={LogoImg} />
+            <Link to="/">
+                <Logo src={LogoImg} />
+            </Link>
         </HeaderContainer>
     );
 }

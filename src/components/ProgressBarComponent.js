@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Text = styled.div`
-  color: white;
+  color: #ed6ea0;
   font-family:'Binggrae-Bold';
   font-size:1.5rem;
-  text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.25);
+  text-shadow: -2.5px 0 white, 0 2.5px white, 2.5px 0 white, 0 -2.5px white;
   margin: 0rem 1rem 0.35rem 1rem;
 `
 
@@ -28,11 +28,6 @@ const ProgressBar = ({ text, percentage }) => {
     borderRadius: '20px',
     transition: '1s ease 0.005s',
     boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'
-  }
-
-  const progressPercentage = {
-    // 수정해야됨
-    float: 'right'
   }
 
 

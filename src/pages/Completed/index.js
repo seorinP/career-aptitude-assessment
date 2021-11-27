@@ -18,9 +18,9 @@ const Boundary = styled.div `
 const Title = styled.div`
   font-family:'Binggrae-Bold';
   font-size:2.5rem;
-  text-shadow: 1px 2px 1.5px rgba(0, 0, 0, 0.25);
+  text-shadow: -2.5px 0 white, 0 2.5px white, 2.5px 0 white, 0 -2.5px white;
   text-align:center;
-  color:white;
+  color:#ed6ea0;
   margin-bottom:4.0rem;
 `
 
@@ -30,7 +30,7 @@ const Description = styled.div`
   font-weight:400;
   text-shadow: 1px 2px 1.5px rgba(0, 0, 0, 0.25);
   text-align:center;
-  color:white;
+  color:#451919;
   margin-bottom:4rem;
 `
 

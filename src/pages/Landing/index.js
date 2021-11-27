@@ -26,18 +26,19 @@ const Intro = styled.div`
     font-weight:400;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
     text-align:center;
-    color:white;
+    color:#451919;
     margin-bottom:4rem;
 `
 
 const Title = styled.div`
     font-family:'Binggrae-Bold';
     font-size:2.7rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+    text-shadow: -2.5px 0 white, 0 2.5px white, 2.5px 0 white, 0 -2.5px white;
     text-align:center;
-    color:white;
+    color:#ed6ea0;
     margin-top:1.9rem;
     margin-bottom:6.4rem;
+    
 `
 const FormContainer = styled.div`
     & + & {
@@ -49,7 +50,8 @@ const Label = styled.div`
     font-family:'Binggrae-Bold';
     text-align: left;
     font-size: 1.05rem;
-    color: #0F6171;
+    color: white;
+    text-shadow: -1.5px 0 #ed6ea0, 0 1.5px #ed6ea0, 1.5px 0 #ed6ea0, 0 -1.5px #ed6ea0;
     margin-top: 1.2rem;
     margin-bottom: 0.3rem;
     margin-left: 0.3rem;

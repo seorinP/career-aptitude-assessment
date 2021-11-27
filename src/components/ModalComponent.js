@@ -57,7 +57,7 @@ font-family:'Binggrae-Bold';
     }
 `
 
-const Modal = ({name, gender, type, onClick, modalClose}) => {
+const Modal = ({name, gender, type, onClick, modalClose}) => {   
 
     const onCloseModal = (e) => {
         console.log('e.target: ', e.target)

@@ -19,8 +19,10 @@ const Item = styled.div`
 `;
 
 const Text = styled.div`
-  font-family:'Binggrae';
+  font-family:'Binggrae-Bold';
   font-size:1.27rem;
+  color: #ed6ea0;
+  text-shadow: -1.5px 0 white, 0 1.5px white, 1.5px 0 white, 0 -1.5px white;
 `
 
 const RadioButtonLabel = styled.label`
@@ -49,7 +51,7 @@ const RadioButton = styled.input`
       border-radius: 50%;
       width: 12px;
       height: 12px;
-      margin: 6px;
+      margin: 5px;
       background: #eeeeee;
     }
   }
@@ -97,7 +99,7 @@ const GenderRadioButton = React.forwardRef((props, ref) => {
           checked={select === '100323'}
           onChange={(event) => handleSelectChange(event)}
         />
-        <RadioButtonLabel />
+        <RadioButtonLabel /> &nbsp;&nbsp;
         <Text>남자</Text>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </Item>
@@ -114,7 +116,7 @@ const GenderRadioButton = React.forwardRef((props, ref) => {
           checked={select === '100324'}
           onChange={(event) => handleSelectChange(event)}
         />
-        <RadioButtonLabel />
+        <RadioButtonLabel /> &nbsp;&nbsp;
         <Text>여자</Text>
       </Item>
     </Wrapper>
