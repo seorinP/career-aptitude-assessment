@@ -188,7 +188,11 @@ const Question = forwardRef(
                     className="form-check-input"
                     value={answerScore02}
                     checked={select === answerScore02}
-                    onChange={handleAnswer(qitemNo, answerScore02), event=>handleSelectChange(event)}
+                    // onChange={handleAnswer(qitemNo, answerScore02), event=>handleSelectChange(event)}
+                    onChange={(event) => {
+                      handleAnswer(qitemNo, answerScore02)
+                      handleSelectChange(event)
+                    }}
                     defaultChecked={answerScore02 === initialValue}
                   />
                   <RadioButtonLabel /> &nbsp;&nbsp;
