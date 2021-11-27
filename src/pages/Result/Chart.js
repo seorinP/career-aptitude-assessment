@@ -76,7 +76,7 @@ const Chart = ({ data }) => {
                   <div
                     style={{
                       fontFamily:'Binggrae-Bold',
-                      color: 'black',
+                      color: '#CC2163',
                       textAlign: "center",
                       position: "absolute",
                       bottom: "100%",
@@ -88,7 +88,7 @@ const Chart = ({ data }) => {
 
                   <div
                     style={{
-                      color: 'black',
+                      color: '#451919',
                       fontFamily:'Binggrae-Bold',
                       textAlign: "center",
                       position: "absolute",

@@ -36,7 +36,6 @@ function ModalContainer({ name, gender, disabled, type, onClick }) {
     const [modalOpen, setModalOpen] = useState(false)
     const modalClose = () => {
         setModalOpen(!modalOpen)
-
     }
 
     return (

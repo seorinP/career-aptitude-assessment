@@ -13,7 +13,7 @@ const InputField = styled.input`
   padding: 24px;
   border-radius: 16px;
   border-width: 1px;
-  color: #333;
+  color: #451919;
   margin: auto;
   width: 100%;
   box-sizing: border-box;
