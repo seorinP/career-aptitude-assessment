@@ -145,7 +145,12 @@ const Question = forwardRef(
                   // 이건 추가됨
                     checked={select === answerScore01}
                   // 여기가 기존하고 변경 되었음
-                    onChange={handleAnswer(qitemNo, answerScore01), event=>handleSelectChange(event)}
+                  //  onChange={handleAnswer(qitemNo, answerScore01), event=>handleSelectChange(event)}
+                    onChange={(event) => {
+                      handleAnswer(qitemNo, answerScore02)
+                      handleSelectChange(event)
+                    }}
+                  
                     defaultChecked={answerScore01 === initialValue}
                   />
                   <RadioButtonLabel /> &nbsp;&nbsp;

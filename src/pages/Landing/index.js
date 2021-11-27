@@ -66,7 +66,7 @@ const Landing = React.forwardRef((props, ref) => {
                 <Intro>내 가치관에 맞는 찰떡 직업은 무엇일까?<br /> 내게 딱 맞는 직업 찾기 테스트!</Intro>
 
                 {/* 제목 작성 */}
-                <Title>" Find My Fit Job "</Title>
+                <Title>" 찰떡직업 찾기 "</Title>
 
                 {/* 이름 작성 */}
                 <FormContainer>
