@@ -17,9 +17,9 @@ const Title = styled.div`
   font-family:'Binggrae-Bold';
   font-size:2.5rem;
   text-align:center;
-  color:#FFFFFF;
+  color:#ed6ea0;
   margin-bottom:5.0rem;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  text-shadow: -2.5px 0 white, 0 2.5px white, 2.5px 0 white, 0 -2.5px white;
 `
 const Description = styled.div`
   font-family:'Binggrae';
@@ -27,15 +27,15 @@ const Description = styled.div`
   font-weight:400;
   text-align:left;
   text-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.25);
-  color:white;
+  color:#451919;
   margin-bottom:4rem;
 `
 const Label = styled.div`
     font-family:'Binggrae-Bold';
-    text-shadow: 0.2px 1.5px 1.5px rgba(0, 0, 0, 0.25);
+    text-shadow: -2.5px 0 #ed6ea0, 0 2.5px #ed6ea0, 2.5px 0 #ed6ea0, 0 -2.5px #ed6ea0;
     text-align: left;
     font-size: 1.5rem;
-    color: ##6B3FA0;
+    color: white;
     margin-top: 1.2rem;
     margin-bottom: 1.5rem;
 `
@@ -191,23 +191,23 @@ const Result = () => {
         기회를 제공합니다.
       </Description>
 
-      <table className="table" style={{fontFamily:'Binggrae'}}>
+      <table className="table" style={{borderRadius:'35px 10px', backgroundColor:'white', fontFamily:'Binggrae-Bold', textAlign:'center'}}>
         <thead>
           <tr>
-            <th scope="col">이름</th>
-            <th scope="col">성별</th>
-            <th scope="col">검사일</th>
+            <th style={{color:'#451919', borderColor:'pink'}}>이름</th>
+            <th style={{color:'#451919', borderColor:'pink'}}>성별</th>
+            <th style={{color:'#451919', borderColor:'pink'}}>검사일</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{userName}</td>
-            <td>{userGender}</td>
-            <td>{reportedDate}</td>
+            <td style={{color:'#451919'}}>{userName}</td>
+            <td style={{color:'#451919'}}>{userGender}</td>
+            <td style={{color:'#451919'}}>{reportedDate}</td>
           </tr>
         </tbody>
       </table>
-
+      
       <br />
       <br />
 
@@ -221,7 +221,7 @@ const Result = () => {
       <div>
         <Label>가치관과 관련이 높은 직업</Label>
         <br />
-        <div className="p-2 text-center text-black"  style={{backgroundColor:'white', fontFamily:'Binggrae-Bold'}}>
+        <div className="p-2 text-center text-black"  style={{color:'#451919', borderRadius:'15px 15px 0px 0px', backgroundColor:'white', fontFamily:'Binggrae-Bold'}}>
           <h4>종사자 평균 학력별</h4>
         </div>
         <table className="table" style={{fontFamily:'Binggrae-Bold'}}>
@@ -276,10 +276,10 @@ const Result = () => {
 
         <br /><br />
 
-        <div className="p-2 text-center text-black" style={{backgroundColor:'white', fontFamily:'Binggrae-Bold'}}>
+        <div className="p-2 text-center text-black" style={{color:'#451919', borderRadius:'15px 15px 0px 0px', backgroundColor:'white', fontFamily:'Binggrae-Bold'}}>
           <h4>종사자 평균 전공별</h4>
         </div>
-        <table className="table" style={{fontFamily:'Binggrae'}}>
+        <table className="table" style={{fontFamily:'Binggrae-Bold'}}>
           <thead>
             <tr>
               <th scope="col" style={{ whiteSpace: "nowrap", minWidth: 120 }}>

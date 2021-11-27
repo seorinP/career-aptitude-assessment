@@ -11,7 +11,7 @@ const Container = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border-radius: 24px;
+  border-radius: 40px 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
@@ -34,6 +34,8 @@ const Item = styled.div`
 const Text = styled.div`
   font-family:'Binggrae';
   font-size:1.27rem;
+  color: #451919;
+  
 `
 
 const RadioButtonLabel = styled.label`

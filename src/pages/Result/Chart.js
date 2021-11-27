@@ -26,15 +26,18 @@ const Chart = ({ data }) => {
   return (
     <div
       style={{
-        border: 'solid white 5px',
-        backgroundImage:'linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%)',
+        border: 'solid white 10px',
+        borderRadius: '16px' ,
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
         position: "relative",
         width: "100%",
         height: "auto",
         marginBottom: 48,
       }}
     >
-      <table className="table table-bordered m-0">{rows}</table>
+      <table className="table table-bordered m-0">
+        {rows}
+      </table>
       <div
         style={{
           position: "absolute",
@@ -45,6 +48,7 @@ const Chart = ({ data }) => {
           display: "flex",
           alignItems: "flex-end",
           justifyContent: "space-between",
+          borderRadius: '16px'
         }}
       >
         {Array.isArray(data) &&
@@ -63,7 +67,7 @@ const Chart = ({ data }) => {
                 <div
                   // className="bg-gradient-warning"
                   style={{
-                    backgroundColor: 'white',
+                    backgroundImage: 'linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%)',
                     position: "relative",
                     width: "55%",
                     height: `${(value?.score / maxScore) * 80}%`,
@@ -90,7 +94,7 @@ const Chart = ({ data }) => {
                       position: "absolute",
                       top: "100%",
                       width: "100%",
-                      paddingTop: 8,
+                      paddingTop: 15,
                     }}
                   >
                     {interpretationNames[value?.seq - 1]}
