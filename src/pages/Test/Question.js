@@ -159,6 +159,8 @@ const Question = forwardRef(
               {console.log(`select : ${select}`)}
               {console.log(`answerScore01 : ${answerScore01}`)}
               {console.log(`answerScore02 : ${answerScore02}`)}
+              {console.log(`checked answerScore01 : ${select == answerScore01}`)}
+              {console.log(`checked answerScore02 : ${select == answerScore02}`)}
               {console.log(`checked answerScore01 : ${select === answerScore01}`)}
               {console.log(`checked answerScore02 : ${select === answerScore02}`)}
               
