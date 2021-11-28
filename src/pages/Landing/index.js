@@ -8,7 +8,6 @@ import ModalContainer from '../../components/ModalContainerComponent';
 
 const Wrapper = styled.div`
     display:${props => props.pageIndex === 0 ? 'flex' : 'none'};
-    width:100vw;
     height:100vh;
     flex-direction:column;
     align-items:center;
