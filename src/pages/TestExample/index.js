@@ -51,10 +51,8 @@ function TestExample({ setSelectedValue, initialValue, disabled, pageIndex, prog
   
               
               <div className="button d-flex justify-content-between">
-                {/* 이전 다음 버튼 */}
                 <PageMoveButton className='button' type={'previous'} text={'처음 화면으로'} onClick={onClick1} />
                 &nbsp;
-                {/* <PageMoveButton className='button' type={'next'} disabled={disabled} text={'검사 시작'} onClick={onClick2} /> */}
                 <PageMoveButton className='button' type={'button'} disabled={disabled} text={'검사 시작'} onClick={onClick2} />
               </div>
             </Boundary>

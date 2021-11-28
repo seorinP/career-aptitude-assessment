@@ -214,8 +214,8 @@ const Test = () => {
         {currentPageIndex === 1 && (
           <TestExample 
             setSelectedValue={setSelectedSampleValue}
-            initialValue={selectedSampleValue} // 지금은 null값이 들어있다.
-            disabled={!selectedSampleValue} // disabled true로 되어있나?
+            initialValue={selectedSampleValue} 
+            disabled={!selectedSampleValue}
             pageIndex={currentPageIndex} 
             progressPercentage={0}
             onClick1={handlePrevClick}
@@ -224,7 +224,6 @@ const Test = () => {
         )}
 
         <Boundary>
-        {/* 본격적으로 검사 시작 */}
         {currentPageIndex > 1 && (
           <>
           <div className="mb-4">
@@ -241,7 +240,7 @@ const Test = () => {
 
         <QuestionList questions={questions} visibleQuestions={visibleQuestions} ref={register} />
         
-        {/* 아래 버튼들 */}
+
         {currentPageIndex > 1 && (
         <>
           <div className="button d-flex justify-content-between">

@@ -324,13 +324,11 @@ const Result = () => {
 
       <br /><br /><br />
 
-      {/* <div className="text-center" style={{fontFamily:'Binggrae'}}> */}
       <Button>
         <Link to="/" style={{color:'white'}}>
           다시 검사하기
         </Link>
       </Button>
-      {/* </div> */}
 
     </div>
     <FooterComponent />
