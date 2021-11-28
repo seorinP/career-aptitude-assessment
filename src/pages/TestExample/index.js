@@ -7,7 +7,7 @@ import PageMoveButton from '../../components/PageMoveButtonComponent';
 
 const Boundary = styled.div `
   margin: 4.0rem 4.5rem 2.0rem 4.5rem;
-  height: 100%;
+  height: 100vh;
 `
 
 const Title = styled.div`

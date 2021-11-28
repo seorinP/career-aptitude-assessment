@@ -21,7 +21,7 @@ yup.setLocale(ko);
 
 const Boundary = styled.div `
   margin: 4.0rem 4.8rem;
-  height: 100%;
+  height: 100vh;
 `
 
 
